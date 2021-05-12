@@ -109,20 +109,15 @@
 
 .product-card__img-wrap {
   width: 100%;
-  //min-width: 80px;
-  //width: 80px;
-  //height: 80px;
 
   @media (min-width: 400px) {
     margin-right: 13px;
     min-width: 150px;
     max-width: 150px;
-    //height: 150px;
   }
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     min-width: 198px;
     height: auto;
-    //height: 150px;
   }
 
   @media (min-width: 1000px) {
@@ -164,21 +159,16 @@
 }
 
 .product-card__buy {
-  //display: none;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
 
   @media (min-width: 600px) {
     flex-direction: row;
-    //margin-top: auto;
-    //align-items: flex-end;
   }
 
   @media (min-width: 600px) {
     flex-direction: row;
-
-    //align-items: flex-end;
   }
 
   @media (min-width: 1000px) {
@@ -216,7 +206,7 @@
 //  }
 //}
 
-.product-card__icons {
+.product-card__add {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -231,7 +221,7 @@
   }
 }
 
-.product-card__item {
+.product-card__add-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,6 +233,54 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
   &:first-child {
     margin-left: 0;
+  }
+}
+
+.product-card__add-basket {
+  display: none;
+  @media (min-width: 400px) {
+    display: flex;
+  }
+  @media (min-width: 450px) {
+    display: none;
+  }
+  @media (min-width: 600px) {
+    display: flex;
+  }
+  @media (min-width: 730px) {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    display: flex;
+  }
+}
+
+.mobile-product-card__in-basket {
+  background: #fff;
+  color: $d-red;
+  border: 1px solid $d-red;
+
+  margin-left: auto;
+
+  //width: 180px;
+  //display: none;
+  @media (min-width: 400px) {
+    display: none;
+  }
+  @media (min-width: 450px) {
+    display: flex;
+  }
+  @media (min-width: 600px) {
+    display: none;
+  }
+  @media (min-width: 730px) {
+    display: flex;
+    margin-right: 20px;
+    //padding: 12px 45px;
+  }
+  @media (min-width: 1000px) {
+    display: none;
   }
 }
 
