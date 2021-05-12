@@ -1,25 +1,15 @@
 //основные цвета
+$b-red: #ff0000;
 $red: #861119;
 $l-red: #ff949c;
 $d-red: #470308;
+$d-l-red: radial-gradient(308.6% 100% at 30.62% 0%, #550d12 0%, #861119 100%);
+$l-d-red: radial-gradient(308.6% 100% at 30.62% 0%, #861119 0%, #550d12 100%);
 
-// дополнительные цвета
-$grey: #666666;
-$l-grey: #cccccc;
-$green: #64bc26;
-$red: #ea1601;
-
-//hover
-$l-yellow: #ffc91c;
-//active
-$d-yellow: #dca700;
-
-// font
-$gilroy: "Gilroy", sans-serif;
-
-//полупрозрачный фон
-$bgForModals: rgba(0, 0, 0, 0.5);
-$bgWhite: rgba(255, 255, 255, 0.8);
+$grey: #808080;
+$l-grey: #ccc;
+$hover-red: #ffc6ca;
+$active-red: #ffa1a7;
 
 * {
   margin: 0;
@@ -36,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   @media (min-width: 1000px) {
-    background: $baseRed;
+    background: $red;
   }
 }
 
@@ -51,7 +41,7 @@ h2,
   font-weight: bold;
   font-size: 30px;
   line-height: 110%;
-  color: #1d295d;
+  color: $red;
   @media (min-width: 1000px) {
     font-family: "Avenir", sans-serif;
     font-size: 40px;
@@ -87,7 +77,7 @@ h4,
   font-weight: bold;
   font-size: 30px;
   line-height: 95.2%;
-  color: #1d295d;
+  color: $d-red;
   margin-bottom: 40px;
   @media (min-width: 1000px) {
     padding: 0;
@@ -235,24 +225,24 @@ li {
 .light-btn {
   display: inline-block;
   padding: 12px 42px;
-  background: #9dcefc;
+  background: $l-red;
 
   font-family: "Avenir", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 95.2%;
-  color: #1d295d;
+  color: $d-red;
   text-align: center;
   transition: 0.2s ease-in;
   outline: none;
   cursor: pointer;
   &:hover {
-    background: #b6dbfd;
+    background: $hover-red;
   }
 
   &:active {
-    background: #6cb6fa;
+    background: $l-red;
   }
 }
 
@@ -263,21 +253,21 @@ li {
   font-weight: normal;
   font-size: 20px;
   line-height: 95.2%;
-  color: #9dcefc;
-  background: #264393;
-  border: 1px solid #9dcefc;
+  color: $l-red;
+  background: $red;
+  border: 1px solid $l-red;
   padding: 12px 46px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
   transition: 0.2s ease-in-out;
   outline: none;
   cursor: pointer;
   &:hover {
-    background: #9dcefc;
-    color: #264393;
+    background: $hover-red;
+    color: $red;
   }
   &:active {
-    background: #aed7fc;
-    color: #1d295d;
+    background: $active-red;
+    color: $d-red;
   }
 }
 
@@ -334,11 +324,7 @@ li {
   @media (min-width: 330px) {
     padding: 17px 15px 15px;
   }
-  background: radial-gradient(
-    157.38% 59.19% at 50% 59.19%,
-    #264393 0%,
-    #1d295d 100%
-  );
+  background: $l-d-red;
   @media (min-width: 1000px) {
     background: none;
     padding: 0;
@@ -356,7 +342,7 @@ li {
     padding: 0;
   }
   @media (min-width: 1000px) {
-    background: #264393;
+    background: $red;
     flex-direction: column-reverse;
     position: relative;
     max-width: 844px;
@@ -381,7 +367,7 @@ li {
   display: flex;
   flex-direction: column;
   @media (min-width: 1280px) {
-    background: #264393;
+    background: $red;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
     padding: 41px 37px 30px 282px;
     margin-left: auto;
@@ -472,7 +458,7 @@ li {
   margin: 0 auto;
   width: 100%;
   height: auto;
-  border: 2px solid #9dcefc;
+  border: 2px solid $l-red;
   @media (min-width: 1000px) {
     max-width: 300px;
     max-height: 300px;
@@ -529,7 +515,7 @@ li {
   font-weight: 300;
   font-size: 16px;
   line-height: 100%;
-  color: #c4c4c4;
+  color: $l-grey;
   margin-bottom: 5px;
 }
 
@@ -543,7 +529,7 @@ li {
 }
 
 .desc-block__m-price--blue {
-  color: #9dcefc;
+  color: $l-red;
 }
 
 .desc-block__btn {
@@ -565,7 +551,7 @@ li {
 }
 
 .desc-block__price-num--blue {
-  color: #9dcefc;
+  color: $l-red;
 }
 
 .desc-block__sticker {
@@ -620,7 +606,7 @@ li {
   @media (min-width: 1000px) {
     width: 80px;
     height: 80px;
-    background: #264393;
+    background: $red;
   }
 }
 

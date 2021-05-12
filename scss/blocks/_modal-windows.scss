@@ -51,7 +51,7 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 130%;
-  color: #808080;
+  color: $grey;
   cursor: pointer;
   @media (min-width: 650px) {
     font-size: 16px;
@@ -75,7 +75,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
-  color: #1d295d;
+  color: $d-red;
   margin-bottom: 20px;
   @media (min-width: 650px) {
     margin-bottom: 30;
@@ -89,7 +89,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 100%;
-  color: #264393;
+  color: $red;
   margin-bottom: 20px;
   @media (min-width: 650px) {
     font-weight: 300;
@@ -99,7 +99,7 @@
 }
 
 .modal__error {
-  color: #ff0000;
+  color: $b-red;
   margin-bottom: 10px;
 }
 
@@ -115,7 +115,7 @@
   width: 100%;
   outline: none;
   height: 50px;
-  border: 1px solid #1d295d;
+  border: 1px solid $d-red;
   padding: 10px 26px;
 
   font-family: "Roboto", sans-serif;
@@ -123,7 +123,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #1d295d;
+  color: $d-red;
   margin-bottom: 10px;
   @media (min-width: 540px) {
     margin-bottom: 0;
@@ -136,7 +136,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .modal__input::-webkit-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -144,7 +144,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .modal__input:-ms-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -152,7 +152,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .modal__input::-moz-placeholder {
   font-family: "Roboto", sans-serif;
@@ -160,7 +160,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .modal__input:-moz-placeholder {
   font-family: "Roboto", sans-serif;
@@ -168,7 +168,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 
 .modal__submit {
@@ -217,7 +217,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 130%;
-  color: #264393;
+  color: $red;
   @media (min-width: 650px) {
     font-weight: 300;
     font-size: 25px;
@@ -253,7 +253,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 100%;
-  color: #1d295d;
+  color: $d-red;
   @media (min-width: 450px) {
     font-weight: 500;
     font-size: 20px;
@@ -294,7 +294,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 90.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .counter__input::-webkit-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -302,7 +302,7 @@
   font-weight: 300;
   font-size: 20px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .counter__input:-ms-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -310,7 +310,7 @@
   font-weight: 300;
   font-size: 20px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 .counter__input::-moz-placeholder {
   font-family: "Roboto", sans-serif;
@@ -326,12 +326,12 @@
   font-weight: 300;
   font-size: 20px;
   line-height: 95.2%;
-  color: #cccccc;
+  color: $l-grey;
 }
 
 .counter__btn {
   flex: 0 0 50px;
-  border: 1px solid #1d295d;
+  border: 1px solid $d-red;
   width: 50px;
   height: 50px;
   border-left: none;
@@ -364,7 +364,7 @@
   font-weight: 500;
   font-size: 20px;
 
-  color: #1d295d;
+  color: $d-red;
   margin-bottom: 30px;
   @media (min-width: 580px) {
     margin-bottom: 0;
@@ -382,7 +382,7 @@
   padding-left: 10px;
   font-size: 40px;
   line-height: 100%;
-  color: #264393;
+  color: $red;
 }
 
 .order-modal__submit {

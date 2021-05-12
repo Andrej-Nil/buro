@@ -12,7 +12,7 @@
 .faq-question {
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  color: #1d295d;
+  color: $d-red;
   border-top: 1px solid #e5e5e5;
   cursor: pointer;
   &:last-child {
@@ -25,7 +25,7 @@
     line-height: 120%;
     color: #fff;
     margin-bottom: 15px;
-    background: #264393;
+    background: $red;
     border: none;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
     &:last-child {
@@ -35,14 +35,10 @@
 }
 
 .faq-question.is-active {
-  background: radial-gradient(
-    183.91% 99.76% at 50% 0.24%,
-    #264393 0%,
-    #1d295d 100%
-  );
+  background: $l-d-red;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   @media (min-width: 1000px) {
-    background: #264393;
+    background: $red;
   }
 }
 
@@ -52,7 +48,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 120%;
-  color: #1d295d;
+  color: $d-red;
   position: relative;
   display: flex;
   align-items: center;
@@ -71,7 +67,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 120%;
-  color: #9dcefc;
+  color: $l-red;
 
   @media (min-width: 1000px) {
     font-weight: 300;
@@ -131,10 +127,10 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 95.2%;
-  color: #1d295d;
+  color: $d-red;
   margin-bottom: 20px;
   @media (min-width: 1000px) {
-    color: #9dcefc;
+    color: $l-red;
     margin-bottom: 15px;
   }
 }
@@ -149,7 +145,7 @@
 .faq-form__error {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #ff0000;
+  color: $b-red;
   @media (min-width: 1000px) {
     color: #ffffff;
   }
@@ -159,14 +155,14 @@
   width: 100%;
   padding: 12px 24px;
   outline: none;
-  border: 1px solid #264393;
+  border: 1px solid $red;
 
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #1d295d;
+  color: $d-red;
   @media (min-width: 1000px) {
     width: 100%;
     padding: 13px 24px;
@@ -178,7 +174,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    color: #1d295d;
+    color: $d-red;
   }
 }
 
@@ -188,7 +184,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #808080;
+  color: $grey;
 }
 .faq-form__input::-webkit-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -196,7 +192,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #808080;
+  color: $grey;
 }
 .faq-form__input:-ms-input-placeholder {
   font-family: "Roboto", sans-serif;
@@ -204,7 +200,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #808080;
+  color: $grey;
 }
 .faq-form__input::-moz-placeholder {
   font-family: "Roboto", sans-serif;
@@ -212,7 +208,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #808080;
+  color: $grey;
 }
 .faq-form__input:-moz-placeholder {
   font-family: "Roboto", sans-serif;
@@ -220,7 +216,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: #808080;
+  color: $grey;
 }
 
 .faq-form__btn {

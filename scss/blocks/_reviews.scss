@@ -36,14 +36,10 @@
 
 .review__content {
   padding: 28px 10px 14px;
-  background: radial-gradient(
-    183.91% 99.76% at 50% 0.24%,
-    #1d295d 0%,
-    #264393 100%
-  );
+  background: $d-l-red;
   @media (min-width: 1000px) {
     padding: 33px 33px 30px 119px;
-    background: #264393;
+    background: $red;
   }
 }
 
@@ -79,7 +75,7 @@
   top: 0px;
   width: 90px;
   height: 90px;
-  border: 2px solid #9dcefc;
+  border: 2px solid $l-red;
   @media (min-width: 1000px) {
     top: 23px;
     width: 150px;

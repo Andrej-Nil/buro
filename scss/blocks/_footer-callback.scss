@@ -81,9 +81,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 95.2%;
-  color: #ff0000;
+  color: $b-red;
   @media (min-width: 1000px) {
-    color: #fdaeae;
+    color: $l-red;
   }
 }
 
@@ -94,7 +94,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 95.2%;
-  color: #1d295d;
+  color: $d-red;
 
   @media (min-width: 1000px) {
     color: #ffffff;
@@ -112,7 +112,7 @@
   display: block;
   width: 100%;
   outline: none;
-  border: 1px solid #1d295d;
+  border: 1px solid $d-red;
   background: #fff;
   height: 50px;
   padding: 12px 18px;
@@ -123,12 +123,12 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #264393;
+  color: $red;
   @media (min-width: 1000px) {
     width: 226px;
     height: 40px;
     border: 1px solid #ffffff;
-    background: #264393;
+    background: $red;
     color: #fff;
   }
 }
@@ -139,7 +139,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #ccc;
+  color: $l-grey;
 }
 .callback-form__input::-webkit-input-placeholder {
   font-family: "Avenir", sans-serif;
@@ -147,7 +147,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #ccc;
+  color: $l-grey;
 }
 .callback-form__input:-ms-input-placeholder {
   font-family: "Avenir", sans-serif;
@@ -155,7 +155,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #ccc;
+  color: $l-grey;
 }
 .callback-form__input::-moz-placeholder {
   font-family: "Avenir", sans-serif;
@@ -163,7 +163,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #ccc;
+  color: $l-grey;
 }
 .callback-form__input:-moz-placeholder {
   font-family: "Avenir", sans-serif;
@@ -171,7 +171,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: #ccc;
+  color: $l-grey;
 }
 
 .callback-form__submit {

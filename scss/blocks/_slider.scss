@@ -23,7 +23,7 @@
   position: relative;
   width: 300px;
   height: 300px;
-  border: 2px solid #9dcefc;
+  border: 2px solid $l-red;
   cursor: pointer;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .slider__current {
-  color: #9dcefc;
+  color: $l-red;
 }
 
 .slider__dots-nav {
@@ -140,7 +140,7 @@
 }
 
 .slider__dot--is-activ {
-  border: 2px solid #9dcefc;
+  border: 2px solid $l-red;
   width: 98px;
   height: 98px;
 }

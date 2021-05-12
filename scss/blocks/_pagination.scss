@@ -18,11 +18,7 @@
   justify-content: center;
   border: 1px solid #fff;
 
-  background: radial-gradient(
-    157.38% 59.19% at 50% 59.19%,
-    #264393 0%,
-    #1d295d 100%
-  );
+  background: $l-d-red;
   margin-right: 10px;
 
   font-family: "Avenir", sans-serif;
@@ -35,25 +31,25 @@
     margin-right: 0;
   }
   @media (min-width: 1000px) {
-    background: #264393;
+    background: $red;
     font-size: 25px;
     transition: 0.2s ease-in-out;
     &:hover {
-      background: #9dcefc;
+      background: $l-red;
     }
   }
 }
 
 .pagination__link--no-hover {
   &:hover {
-    background: #264393;
+    background: $red;
   }
 }
 
 .pagination__link--is-active {
-  border: 1px solid #264393;
+  border: 1px solid $red;
   background: #fff;
-  color: #264393;
+  color: $red;
   @media (min-width: 1000px) {
     border: 1px solid #fff;
   }

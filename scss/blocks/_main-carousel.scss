@@ -5,11 +5,7 @@
   order: 2;
   overflow: hidden;
   transition: 0.2s ease-in-out;
-  background: radial-gradient(
-    308.6% 100% at 30.62% 0%,
-    #1d295d 0%,
-    #264393 100%
-  );
+  background: $d-l-red;
 }
 
 .m-c__slides {
@@ -20,11 +16,7 @@
   overflow: hidden;
   min-width: 100%;
   min-height: 200px;
-  background: radial-gradient(
-    308.6% 100% at 30.62% 0%,
-    #1d295d 0%,
-    #264393 100%
-  );
+  background: $d-l-red;
 }
 
 .m-c-slide__content {
@@ -145,22 +137,17 @@
   font-weight: 700;
   font-size: 35px;
   line-height: 100%;
-  color: #fada7c;
+  color: $l-red;
   @media (min-width: 600px) {
     line-height: 100%;
     font-size: 35px;
-    color: #9dcefc;
   }
 
   @media (min-width: 950px) {
-    line-height: 100%;
     font-size: 55px;
-    color: #9dcefc;
   }
   @media (min-width: 1200px) {
-    line-height: 100%;
     font-size: 70px;
-    color: #9dcefc;
   }
   @media (min-width: 1400px) {
     font-size: 100px;
