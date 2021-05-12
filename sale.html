@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href='./css/style.min.css'>
-  <title>О Компании</title>
+  <title>Акции</title>
 </head>
 
 <body>
@@ -21,8 +21,8 @@
               </a>
             </li>
             <li class="h-nav__item">
-              <span class="h-nav__marker"></span>
-              <a href="about.html" class="h-nav__link h-nav__link--is-active">
+
+              <a href="about.html" class="h-nav__link link">
                 О компании
               </a>
             </li>
@@ -32,17 +32,20 @@
               </a>
             </li>
             <li class="h-nav__item">
+
               <a href="catalog.html" class="h-nav__link link">
                 Каталог
               </a>
             </li>
             <li class="h-nav__item">
+
               <a href="news.html" class="h-nav__link link">
                 Новости
               </a>
             </li>
             <li class="h-nav__item">
-              <a href="stock.html" class="h-nav__link link">
+              <span class="h-nav__marker"></span>
+              <a href="stock.html" class="h-nav__link h-nav__link--is-active">
                 Акции
               </a>
             </li>
@@ -98,7 +101,6 @@
           <a href="favorites.html" id='' class="h-mobile__btn-item">
             <img class="h-mobile__btn-img" src="./img/icon/favorite-icon.svg" alt="">
           </a>
-
           <div id='searchBtn' class="h-mobile__btn-item">
             <img class="h-mobile__btn-img" src="./img/control/m-search-icon.svg" alt="">
           </div>
@@ -116,10 +118,10 @@
         <input type="text" placeholder="Поиск" class="search-mobile__input">
       </form>
     </div>
+
   </header>
+
   <!--content-wrap-->
-
-
   <div class="content-wrap">
     <img class="main-bg" src="./img/image/bg.jpg" alt="">
     <div class="content">
@@ -129,29 +131,22 @@
           <div class="path">
             <a href="index.html" class="path__link">Главная</a>
             <span class="path__slash">/</span>
-            <a href="about.html" class="path__link">О компании</a>
+            <a href="stock.html" class="path__link">Акции</a>
+            <span class="path__slash">/</span>
+            <a href="sale.html" class="path__link">Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734</a>
           </div>
         </div>
         <!--path-->
         <div class="cols-wrap">
           <!--col-content-->
           <div class="col-content">
-            <div class="about-wpap desc-block-wrap">
-
-              <h2 class="section-title section-title--white h2">О компании</h2>
-              <div class="about desc-block">
-                <div class="about__content desc-block__content desc-block--with-slider not-shadow">
-                  <h3 class="about__title desc-block__title"><a href="#!" class="desc-block__link">Айсберг АС
-                    </a></h3>
-                  <div class="about__text desc-block__text">
+            <div class="desc-block-wrap">
+              <div class="desc-block">
+                <div class="desc-block__content desc-block--with-slider">
+                  <h3 class="news__title desc-block__title">Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734</h3>
+                  <div class="desc-block__text">
                     <p class="desc-block__paragraph">
-                      Производственно-Коммерческая Фирма «Айсберг АС» создана, чтобы закрывать потребности в черном,
-                      оцинкованном, цветном и нержавеющем металлопрокате, а так-же трубах, трубопроводной арматуре и
-                      грузоподъёмном оборудовании.
-                    </p>
-                    <p class="desc-block__paragraph">
-                      Из оборудования в активах имеется цех гальванического и горячего цинкования, линия по
-                      производству
+                      Из оборудования в активах имеется цех гальванического и горячего цинкования, линия по производству
                       швеллера и уголка гнутого, линия для производства сеток (сетка тканая, сетка сварная, сетка
                       рабица), а так-же линия по производству сварной балки.
                     </p>
@@ -162,11 +157,39 @@
                       транспортом.
                     </p>
                   </div>
+                  <div class="desc-block__buy">
+                    <div class='desc-block__m-price'>
+                      <p class="desc-block__m-price-old">Старая цена: 85 000</p>
+                      <p class="desc-block__m-price-new">Новая цена: <span class="desc-block__m-price--blue">65
+                          000</span></p>
+                    </div>
+                    <div class="desc-block__order">
+                      <button class="product-card__btn desc-block__btn dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="desc-block__price">
+
+
+                      <p class="desc-block__price-text">
+                        Цена: <span class="desc-block__price-num desc-block__price-num--blue">65 000</span>
+                      </p>
+
+                      <p class=" desc-block__date desc-block__price-text ">
+                        Актуально: <span class="desc-block__price-num">18.12.2020</span>
+                      </p>
+                    </div>
+                  </div>
 
                 </div>
 
                 <div class="desc-block__preview">
+
                   <div id='slider' class="desc-block__slider">
+                    <div class="desc-block__sticker sticker-sale">
+                      SALE
+                    </div>
                     <div id='sliderContainer' class="slider slider-container">
                       <div id="slidesWrap" class="slides__wrap">
                         <div class="slider__item slider__item--is-active">
@@ -186,6 +209,7 @@
                     </div>
 
                     <div class="slider__arrow-nav">
+
                       <div class="slider__arrows">
                         <div id='prevSlide' class="slider__arrow">
                           <img src="./img/control/slider-prev.svg" alt="<" class="slider__arrow-img">
@@ -265,40 +289,237 @@
 
                 </div>
               </div>
-              <div class="about-desc">
-                <h3 class="about-desc__title desc-block__title">Айсберг АС в цифрах</h3>
-
-                <div class="about-desc__text">
-                  <p class="about-desc__paragraph">
-                    Айсберг АС – это 75 гектаров производственных, отрытых и закрытых складских помещений. На складах
-                    компании всегда поддерживается наличие металлопроката, в количестве 1500 тонн.
-                  </p>
-                  <p class="about-desc__paragraph">
-                    ПКФ Айсберг АС – это уже более 10 лет безупречной работы на рынке металлопроката. За это время
-                    наработано более 10000 тысяч довольных корпоративных и частных клиентов, заработана кристально
-                    чистая репутация добросовестного поставщика.
-                  </p>
-                  <p class="about-desc__paragraph">
-                    Сотрудники компании являются настоящими профессионалами своего дела, постоянно повышающие свою
-                    квалификацию. Для них дело чести, обслужить клиента по высшему классу. Для Вашего удобства
-                    трудится
-                    более 1000 сотрудников.
-                  </p>
-                  <p class="about-desc__paragraph">
-                    Автопарк компании насчитывает 324 единицы различных манипуляторов, седельных тягачей, газелей и
-                    другой техники разной вместимости и грузоподъёмности.
-                  </p>
-                  <p class="about-desc__paragraph">
-                    Всё выше перечисленное позволяет предоставлять клиентам Айсберга полнейший сервис и удобство
-                    работы.
-                    Если клиент начал работать с нами, он уже не уходит к конкурентам.
-
-                  </p>
-                </div>
-              </div>
             </div>
+            <div class="products">
+              <h3 class="other-products">Другие акции и предложения</h3>
 
+              <div class="products__wrap">
+                <div class="product-card">
+                  <div class="product-card__img-wrap"><img src="./img/image/product-img.jpg" alt=""
+                      class="product-card__img">
+                  </div>
 
+                  <div class="product-card__desc">
+                    <div class="product-card__text">
+                      <h3 class="product-card__title h3">
+                        <a class="product-card__link link" href="stock-card.html">Труба холоднодеформированная
+                          16х2.5мм ст. 20 ГОСТ
+                          8734</a>
+                      </h3>
+                      <p class='product-card__price'>
+                        Цена за штуку:
+                        <span class="product-card__price--blue">
+                          65 000
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="product-card__buy">
+                      <div class="product-card__sticker sticker-sale">
+                        SALE
+                      </div>
+
+                      <button class="product-card__btn product-card__order dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="buy-mobile">
+                      <p class="buy-mobile__price">
+                        65 000 <span class="buy-mobile__curenncy">₽</span>
+                      </p>
+
+                      <div class=" buy-mobile__order">
+                        <div class="buy-mobile__btn product-card__btn">
+                          <img src="./img/icon/basket-icon.svg" alt="" class="buy-mobile__icon">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <div class="product-card__img-wrap"><img src="./img/image/product-img.jpg" alt=""
+                      class="product-card__img">
+                  </div>
+
+                  <div class="product-card__desc">
+                    <div class="product-card__text">
+                      <h3 class="product-card__title h3">
+                        <a class="product-card__link link" href="stock-card.html">Труба холоднодеформированная
+                          16х2.5мм ст. 20 ГОСТ
+                          8734</a>
+                      </h3>
+                      <p class='product-card__price'>
+                        Цена за штуку:
+                        <span class="product-card__price--blue">
+                          65 000
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="product-card__buy">
+                      <div class="product-card__sticker sticker-sale">
+                        SALE
+                      </div>
+
+                      <button class="product-card__btn product-card__order dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="buy-mobile">
+                      <p class="buy-mobile__price">
+                        65 000 <span class="buy-mobile__curenncy">₽</span>
+                      </p>
+
+                      <div class=" buy-mobile__order">
+                        <div class="buy-mobile__btn product-card__btn">
+                          <img src="./img/icon/basket-icon.svg" alt="" class="buy-mobile__icon">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <div class="product-card__img-wrap"><img src="./img/image/product-img.jpg" alt=""
+                      class="product-card__img">
+                  </div>
+
+                  <div class="product-card__desc">
+                    <div class="product-card__text">
+                      <h3 class="product-card__title h3">
+                        <a class="product-card__link link" href="stock-card.html">Труба холоднодеформированная
+                          16х2.5мм ст. 20 ГОСТ
+                          8734</a>
+                      </h3>
+                      <p class='product-card__price'>
+                        Цена за штуку:
+                        <span class="product-card__price--blue">
+                          65 000
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="product-card__buy">
+                      <div class="product-card__sticker sticker-sale">
+                        SALE
+                      </div>
+
+                      <button class="product-card__btn product-card__order dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="buy-mobile">
+                      <p class="buy-mobile__price">
+                        65 000 <span class="buy-mobile__curenncy">₽</span>
+                      </p>
+
+                      <div class=" buy-mobile__order">
+                        <div class="buy-mobile__btn product-card__btn">
+                          <img src="./img/icon/basket-icon.svg" alt="" class="buy-mobile__icon">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <div class="product-card__img-wrap"><img src="./img/image/product-img.jpg" alt=""
+                      class="product-card__img">
+                  </div>
+
+                  <div class="product-card__desc">
+                    <div class="product-card__text">
+                      <h3 class="product-card__title h3">
+                        <a class="product-card__link link" href="stock-card.html">Труба холоднодеформированная
+                          16х2.5мм ст. 20 ГОСТ
+                          8734</a>
+                      </h3>
+                      <p class='product-card__price'>
+                        Цена за штуку:
+                        <span class="product-card__price--blue">
+                          65 000
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="product-card__buy">
+                      <div class="product-card__sticker sticker-sale">
+                        SALE
+                      </div>
+
+                      <button class="product-card__btn product-card__order dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="buy-mobile">
+                      <p class="buy-mobile__price">
+                        65 000 <span class="buy-mobile__curenncy">₽</span>
+                      </p>
+
+                      <div class=" buy-mobile__order">
+                        <div class="buy-mobile__btn product-card__btn">
+                          <img src="./img/icon/basket-icon.svg" alt="" class="buy-mobile__icon">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <div class="product-card__img-wrap"><img src="./img/image/product-img.jpg" alt=""
+                      class="product-card__img">
+                  </div>
+
+                  <div class="product-card__desc">
+                    <div class="product-card__text">
+                      <h3 class="product-card__title h3">
+                        <a class="product-card__link link" href="stock-card.html">Труба холоднодеформированная
+                          16х2.5мм ст. 20 ГОСТ
+                          8734</a>
+                      </h3>
+                      <p class='product-card__price'>
+                        Цена за штуку:
+                        <span class="product-card__price--blue">
+                          65 000
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="product-card__buy">
+                      <div class="product-card__sticker sticker-sale">
+                        SALE
+                      </div>
+
+                      <button class="product-card__btn product-card__order dark-btn">
+                        Заказать
+                      </button>
+                    </div>
+
+                    <div class="buy-mobile">
+                      <p class="buy-mobile__price">
+                        65 000 <span class="buy-mobile__curenncy">₽</span>
+                      </p>
+
+                      <div class=" buy-mobile__order">
+                        <div class="buy-mobile__btn product-card__btn">
+                          <img src="./img/icon/basket-icon.svg" alt="" class="buy-mobile__icon">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="products__btn right-edge">
+                <a href="#!" class="light-btn">Посмотреть все</a>
+              </div>
+
+            </div>
           </div>
           <!--col-content-->
           <!--col-nav-->
@@ -1521,8 +1742,6 @@
       </div>
     </div>
   </div>
-
-
   <!--content-wrap-->
 
   <footer class="footer f">
@@ -1535,7 +1754,7 @@
             </a>
           </li>
           <li class="f-nav__item">
-            <a href="about.html" class="f-nav__link f-nav__link--is-active">
+            <a href="about.html" class="f-nav__link link">
               О компании
             </a>
           </li>
@@ -1556,7 +1775,7 @@
             </a>
           </li>
           <li class="f-nav__item">
-            <a href="stock.html" class="f-nav__link link">
+            <a href="stock.html" class="f-nav__link f-nav__link--is-active">
               Акции
             </a>
           </li>
@@ -1648,7 +1867,10 @@
           </a>
         </div>
       </div>
-      <span id='callbackBtn' class="callback-btn light-btn">Обратная связь</span>
+
+      <span id='callbackBtn' class="callback-btn light-btn">
+        Обратная связь
+      </span>
       <div class="f-socials">
         <a href="#!" class="f-socials__item">
           <img src="./img/icon/whatsApp-icon.svg" alt="" class="f-socials__img">
@@ -1696,7 +1918,7 @@
             </a>
           </li>
           <li class="mobile-nav__item">
-            <a href="about.html" class="mobile-nav__link mobile-nav__link--is-active">
+            <a href="about.html" class="mobile-nav__link">
               О компании
             </a>
           </li>
@@ -1722,7 +1944,7 @@
             </a>
           </li>
           <li class="mobile-nav__item">
-            <a href="stock.html" class="mobile-nav__link">
+            <a href="stock.html" class="mobile-nav__link mobile-nav__link--is-active">
               Акции
             </a>
           </li>
@@ -1797,12 +2019,60 @@
     </div>
     <!--Заявка группа-->
 
+    <!--заказ-->
+    <div id='order' class="order-modal modal">
+      <div class="close">
+        <span class="close__word close-btn">
+          Закрыть
+        </span>
+        <img src="./img/control/close-modal.svg" alt="" class="close__icon close-btn">
+      </div>
+      <div class="modal__content">
+        <h4 class="modal__title">Ваш заказ!</h4>
+        <p class="modal__desc">Укажите количество товара, контактный телефон или почту</p>
+        <form id='orderForm' class='order-modal__form' action="send.html" method="POST">
+          <div class="order-modal__item">
+            <img src="./img/image/section-img.jpg" alt="" class="order-modal__img">
+            <div class="order-modal__desc">
+              Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734
+            </div>
+          </div>
+          <p id="mailOrTel" class="modal__error error">Укажите почту или номер</p>
+          <p class="modal__error error no-send">Произошла ошибка, данные не отправлены, вы можете связаться с нами по
+            телефону 8 (421) 292-97-86 или по почте hab@metall-as.ru</p>
+          <p id="errorMail" class="modal__error error mail">Неправильна указана почта</p>
+          <input id='inputMail' name='mail' class="modal__input order-modal__input input" data-type="email" type="text"
+            placeholder="Ваша почта">
+          <p id="errorTel" class="modal__error error phone">Неправильно указан номер</p>
+          <input id='inputTel' name='tel' class="modal__input order-modal__input input" data-type="tel" type="text"
+            placeholder="+7 000-000-00-00">
+          <div class="counter">
+            <input id='orderQuantity' name='orderQuantity' type="text" class="modal__input counter__input" value='1'
+              placeholder="Количество">
+            <div id='incQuantity' class="counter__btn">
+              <img src="./img/control/counter-inc.svg" alt="" class="counter__btn-img">
+
+            </div>
+            <div id='decQuantity' class="counter__btn">
+              <img src="./img/control/counter-dec.svg" alt="" class="counter__btn-img">
+            </div>
+          </div>
+          <div class="order-modal__buy">
+            <p class="order-modal__total-price">
+              <span class='order-modal__total'>Общая стоимость:</span>
+
+              <span id='orderPrice' data-price="65000" class="order-modal__price">65 000</span>
+            </p>
+            <input class="order-modal__submit modal__submit light-btn" type="submit" value="Отправить">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--заказ-->
+
   </div>
 
   <!--modal-windows-->
-
-
-
   <script src='./js/main.js'></script>
 </body>
 
