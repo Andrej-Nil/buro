@@ -1,0 +1,78 @@
+.header {
+  order: 1;
+}
+.h-nav-wrap {
+  display: none;
+  position: relative;
+  background: $red;
+  z-index: 10;
+  padding: 0 15px;
+  @media (min-width: 1000px) {
+    display: block;
+  }
+  @media (min-width: 1280px) {
+    display: block;
+    padding: 0;
+  }
+}
+
+.h-nav {
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+}
+
+.h-nav__list {
+  display: flex;
+}
+
+.h-nav__item {
+  position: relative;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  margin-right: 40px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.h-nav__marker {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  height: 7px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 7px solid $l-red;
+}
+
+.h-nav__link {
+  font-family: "Avenir", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+}
+
+.h-nav__link--is-active {
+  color: $l-red;
+}
+
+.h-login {
+  margin-left: auto;
+}
+
+.h-login__btn {
+  font-family: "Avenir", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    color: $l-red;
+  }
+}

@@ -1,0 +1,75 @@
+.search-mobile-wrap {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+
+  padding: 0 15px;
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}
+
+.search-mobile--is-hide {
+  height: 0;
+}
+
+.search-mobile {
+  width: 100%;
+}
+
+.search-mobile__input {
+  padding: 13px 15px;
+  outline: none;
+  border: 1px solid #264393;
+  width: 100%;
+
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #1d295d;
+}
+
+.search-mobile__input::placeholder {
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #808080;
+}
+.search-mobile__input::-webkit-input-placeholder {
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #808080;
+}
+.search-mobile__input:-ms-input-placeholder {
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #808080;
+}
+.search-mobile__input::-moz-placeholder {
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #808080;
+}
+.search-mobile__input:-moz-placeholder {
+  font-family: "Avenir", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  color: #808080;
+}

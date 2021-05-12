@@ -1,0 +1,64 @@
+.mobile-menu {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 0px;
+  width: 100%;
+  background: #1d295d;
+  z-index: 1000;
+
+  transition: 0.2s ease-in-out;
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}
+
+.mobile-menu--is-open {
+  max-width: 400px;
+}
+
+.mobile-menu__inner {
+  position: relative;
+  padding: 24px 23px 101px 34px;
+}
+
+.mobile-menu__close {
+  position: absolute;
+  //top: 24px;
+  right: 23px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.mobile__login {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 95.2%;
+  margin-bottom: 73px;
+}
+.mobile-nav__item {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.mobile-nav__link {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 95.2%;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.mobile-nav__link--is-active {
+  font-weight: normal;
+  color: #9dcefc;
+}

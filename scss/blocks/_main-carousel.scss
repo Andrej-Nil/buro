@@ -1,0 +1,232 @@
+.main-carousel {
+  position: relative;
+  min-height: 200px;
+  height: 200px;
+  order: 2;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+  background: radial-gradient(
+    308.6% 100% at 30.62% 0%,
+    #1d295d 0%,
+    #264393 100%
+  );
+}
+
+.m-c__slides {
+  overflow: hidden;
+}
+
+.m-c-slide {
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 200px;
+  background: radial-gradient(
+    308.6% 100% at 30.62% 0%,
+    #1d295d 0%,
+    #264393 100%
+  );
+}
+
+.m-c-slide__content {
+  display: flex;
+  min-height: 200px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.m-c-slide__img {
+  height: 150px;
+  @media (min-width: 380px) {
+    height: 100%;
+  }
+}
+
+.m-c-slide__left {
+  margin-left: -190px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  @media (min-width: 380px) {
+    margin-left: -280px;
+  }
+
+  @media (min-width: 700px) {
+    margin-left: -280px;
+  }
+  @media (min-width: 800px) {
+    margin-left: -180px;
+  }
+  @media (min-width: 950px) {
+    margin-left: -100px;
+  }
+  @media (min-width: 1400px) {
+    margin-left: -100px;
+  }
+  @media (min-width: 1600px) {
+    margin-left: 0;
+  }
+}
+
+.m-c-slide__center {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0 0 0 auto;
+  @media (min-width: 600px) {
+    width: 100%;
+  }
+  @media (min-width: 700px) {
+    flex-grow: 1;
+    margin: 0;
+  }
+  @media (min-width: 1400px) {
+    margin-right: 0;
+  }
+}
+
+.m-c-slide__right {
+  margin-right: -100px;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  @media (min-width: 1400px) {
+    display: block;
+  }
+  @media (min-width: 1600px) {
+    margin-right: 0;
+  }
+}
+
+.m-c-slide__text-wrap {
+  width: 320px;
+  padding: 0 20px;
+  @media (min-width: 600px) {
+    width: 500px;
+  }
+  @media (min-width: 850px) {
+    padding: 0 100px;
+    width: 600px;
+  }
+
+  @media (min-width: 950px) {
+    width: 100%;
+  }
+}
+
+.m-c-slide__text {
+  font-family: "Avenir", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 100%;
+  text-align: right;
+  margin-bottom: 15px;
+  @media (min-width: 700px) {
+    text-align: right;
+    font-size: 30px;
+  }
+  @media (min-width: 1400px) {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.slide__text-one {
+  font-family: "Avenir", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 100%;
+  color: #fada7c;
+  @media (min-width: 600px) {
+    line-height: 100%;
+    font-size: 35px;
+    color: #9dcefc;
+  }
+
+  @media (min-width: 950px) {
+    line-height: 100%;
+    font-size: 55px;
+    color: #9dcefc;
+  }
+  @media (min-width: 1200px) {
+    line-height: 100%;
+    font-size: 70px;
+    color: #9dcefc;
+  }
+  @media (min-width: 1400px) {
+    font-size: 100px;
+  }
+}
+
+.slide__text-two {
+  font-family: "Avenir", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 100%;
+  @media (min-width: 600px) {
+    line-height: 100%;
+    font-size: 35px;
+  }
+
+  @media (min-width: 950px) {
+    line-height: 100%;
+    font-size: 55px;
+  }
+
+  @media (min-width: 1200px) {
+    line-height: 100%;
+    font-size: 70px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 100px;
+  }
+}
+
+.m-c__arrow {
+  display: none;
+  position: absolute;
+  top: 100px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.2s ease-in-out;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  @media (min-width: 850px) {
+    display: block;
+  }
+}
+
+.m-c__left {
+  left: 0;
+  margin-left: 43px;
+}
+
+.m-c__right {
+  right: 0;
+  margin-right: 43px;
+}
+
+.m-c__arrow-img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
