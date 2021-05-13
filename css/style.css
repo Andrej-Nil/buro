@@ -2662,6 +2662,7 @@ li {
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .product-card__add-item:first-child {

@@ -1,0 +1,30 @@
+			
+{			
+	"rez":	1,
+	"desc": "",
+	"content": [		
+	{	
+    "id":	23,
+		"link":	"product-card.html",
+		"title" : "Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734",
+		"desc":	"",
+		"price"	: "34600",
+		"sale":	"10%",
+		"sale_percent":2354756,
+		"sale_price":	254656,
+		"count":20,
+		"units":	"",
+		"pic_webp":["./img/image/product-img.jpg"]	,
+		"pic_fallback":[],
+		"favorite":	true,
+		"new": true
+	}
+],
+	"card": {		
+		"count":	20,
+		"sale":	234234,
+		"sale_price": 3454334,
+		"total_price":6445664,
+		"sale_percent":	"20%"
+	}	
+}	

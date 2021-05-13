@@ -1,5 +1,7 @@
 "use strict";
-
+const _token = getToken();
+const POST = 'GET';
+const GET = 'GET';
 const body = document.querySelector('body');
 const KEY_ESC = 27;
 const mobileSearchWrap = document.querySelector('#mobileSearchWrap');
@@ -55,7 +57,97 @@ mobileSearchBtn.addEventListener('click', showSearch);
 window.addEventListener('scroll', changePosition);
 // Добовлям фунцию для отображекния эл.
 // с кнопкой upBtn
-window.addEventListener('scroll', showUp)
+window.addEventListener('scroll', showUp);
+
+document.addEventListener('click', addFavorite);
+document.addEventListener('click', addBasket);
+
+async function addBasket(e) {
+
+  const btn = e.target.closest('[data-add-basket]');
+  if (!btn) {
+    return;
+  }
+  const id = btn.dataset.id;
+  const api = btn.dataset.link;
+  let response;
+  const data = {
+    '_token': _token,
+    'id': id
+  }
+  response = await getData(POST, data, api);
+  console.log(response.toggle)
+  setInBasketBtn(btn, response.toggle, response.desc)
+
+
+}
+
+function setInBasketBtn(el, toggle, desc) {
+  const parent = el.closest('[data-product-card]');
+  const iconBtn = parent.querySelector('[data-img-basket]');
+  const btn = parent.querySelector('[data-btn-basket]');
+  console.log(btn)
+  if (btn) {
+    toggleInBasketBtn(btn, toggle, desc)
+  }
+  if (iconBtn) {
+    toggleInBasketIconBtn(iconBtn, toggle)
+  }
+
+
+}
+
+function toggleInBasketIconBtn(btn, toggle = false) {
+  const pathToImage = './img/icon/basket-icon.svg';
+  const pathToImageActive = './img/icon/check-mark.svg';
+  if (toggle) {
+    btn.src = pathToImageActive;
+    return;
+  }
+  btn.src = pathToImage;
+
+}
+
+function toggleInBasketBtn(btn, toggle = false, desc) {
+  if (toggle) {
+    btn.innerHTML = desc;
+    return;
+  }
+  btn.innerHTML = desc;
+}
+
+async function addFavorite(e) {
+
+  const btn = e.target.closest('[data-add-favorite]');
+  if (!btn) {
+    return;
+  }
+  const id = btn.dataset.id;
+  const api = btn.dataset.link;
+  let response;
+  const data = {
+    '_token': _token,
+    'id': id
+  }
+  response = await getData(POST, data, api);
+  console.log(response);
+  setFavoriteIcon(btn, response.toggle);
+
+
+}
+
+function setFavoriteIcon(el, boolean) {
+  const imgEl = el.querySelector('[data-img-favorite]');
+  console.log(boolean)
+  const pathToImage = './img/icon/favorite-icon.svg';
+  const pathToImageActive = './img/icon/favorite-icon-active.svg';
+  if (!boolean) {
+    imgEl.src = pathToImage;
+    return;
+  }
+  imgEl.src = pathToImageActive;
+}
+
 
 // Добовлям фунцию для прокрутки сраницы вверх
 upBtn.addEventListener('click', goUp);
@@ -80,6 +172,9 @@ callbackForm.addEventListener('submit', (e) => {
   e.preventDefault();
   callbackFormCheck();
 });
+
+
+
 
 if (faqForm) {
   faqForm.addEventListener('submit', (e) => {
@@ -364,7 +459,6 @@ if (slider) {
 function mainSlider(el, autoplay) {
   let moving = false;
   // слайды
-  console.log(el);
   let slides = el.querySelectorAll('.main-slider__item');
   let newSlides = null;
   let newLastIdx = null;
@@ -483,7 +577,6 @@ function stopMovie(el) {
 }
 
 //Конец slider
-
 
 // Управление каруселью сенсером
 // Начало движения
@@ -712,8 +805,8 @@ function applicationInputsCheck() {
 function applicationFormSend() {
   const formData = new FormData(applicationForm);
   const xhr = new XMLHttpRequest();
-
-  xhr.open("POST", applicationForm.action);
+  formData.append("_token", _token);
+  xhr.open(POST, applicationForm.action);
   xhr.send(formData);
 
   xhr.onload = function () {
@@ -777,7 +870,8 @@ function callbackInputsCheck() {
 function callbackFormSend() {
   const formData = new FormData(callbackForm);
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", callbackForm.action);
+  formData.append("_token", _token);
+  xhr.open(POST, callbackForm.action);
   xhr.send(formData);
   xhr.onload = function () {
     if (xhr.status != 200) {
@@ -822,8 +916,9 @@ function faqInputsCheck() {
 
 function faqFormSend() {
   const formData = new FormData(faqForm);
+  formData.append("_token", _token);
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", faqForm.action);
+  xhr.open(POST, faqForm.action);
   xhr.send(formData);
   xhr.onload = function () {
     if (xhr.status != 200) {
@@ -1081,4 +1176,37 @@ function strLength(classEl, length) {
     }
   });
 
+}
+
+function getToken() {
+  const meta = document.querySelector('meta[name="csrf-token"]');
+  return meta.getAttribute('content')
+}
+
+function getData(method, data, api) {
+
+  return new Promise(function (resolve, reject) {
+
+    const xhr = new XMLHttpRequest();
+    let response = null
+    xhr.open(method, api, true);
+    xhr.send(data);
+    xhr.onload = function () {
+      if (xhr.status != 200) {
+        console.log('Ошибка: ' + xhr.status);
+        return;
+      } else {
+        response = JSON.parse(xhr.response);
+        resolve(response);
+        if (response) {
+          console.log("Запрос отправлен");
+        } else {
+          console.log("Неудачная отправка");
+        }
+      }
+    };
+    xhr.onerror = function () {
+      reject(new Error("Network Error"))
+    };
+  })
 }
