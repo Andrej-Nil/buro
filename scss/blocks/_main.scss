@@ -1,14 +1,17 @@
 //основные цвета
 $b-red: #ff0000;
-$red: #861119;
-$l-red: #ff949c;
-$d-red: #470308;
-$d-l-red: radial-gradient(308.6% 100% at 30.62% 0%, #550d12 0%, #861119 100%);
-$l-d-red: radial-gradient(308.6% 100% at 30.62% 0%, #861119 0%, #550d12 100%);
+//$red: #861119;
+$red: rgb(20, 20, 20);
+//$l-red: #ff949c;
+$l-red: #c40b17;
+$d-red: #1f1e1e;
+$d-l-red: radial-gradient(308.6% 100% at 30.62% 0%, #222 0%, #444 100%);
+$l-d-red: radial-gradient(308.6% 100% at 30.62% 0%, #444 0%, #222 100%);
 
 $grey: #808080;
 $l-grey: #ccc;
-$hover-red: #ffc6ca;
+//$hover-red: #ffc6ca;
+$hover-red: #e0787f;
 $active-red: #ffa1a7;
 
 * {
@@ -26,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   @media (min-width: 1000px) {
-    background: $red;
+    background: #f0f0f0;
   }
 }
 
@@ -46,7 +49,7 @@ h2,
     font-family: "Avenir", sans-serif;
     font-size: 40px;
     line-height: 95.2%;
-    color: #fff;
+    //color: #fff;
   }
   @media (min-width: 1280px) {
     font-size: 50px;
@@ -82,7 +85,6 @@ h4,
   @media (min-width: 1000px) {
     padding: 0;
     font-weight: 500;
-    color: #fff;
   }
 }
 a {
@@ -281,7 +283,7 @@ li {
   font-size: 19px;
   line-height: 95.2%;
   @media (min-width: 600px) {
-    font-size: 19px;
+    font-size: 30px;
     padding: 5px 12px;
   }
 }
@@ -308,6 +310,7 @@ li {
   font-weight: normal;
   font-size: 15px;
   line-height: 100%;
+  color: $red;
   @media (min-width: 1280px) {
     font-size: 20px;
   }
@@ -316,6 +319,13 @@ li {
 .path__slash {
   display: inline-block;
   margin: 0 10px;
+}
+
+.path__link {
+  color: $grey;
+  &:hover {
+    color: $red;
+  }
 }
 
 .desc-block-wrap {

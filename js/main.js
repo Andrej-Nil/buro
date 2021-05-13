@@ -54,100 +54,56 @@ const regMail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]
 mobileSearchBtn.addEventListener('click', showSearch);
 
 // Добовлям фунцию для смены позиции mainBg
-window.addEventListener('scroll', changePosition);
+//window.addEventListener('scroll', changePosition);
 // Добовлям фунцию для отображекния эл.
 // с кнопкой upBtn
 window.addEventListener('scroll', showUp);
 
 document.addEventListener('click', addFavorite);
 document.addEventListener('click', addBasket);
+document.addEventListener('click', renderOrderCart);
 
-async function addBasket(e) {
 
-  const btn = e.target.closest('[data-add-basket]');
+async function renderOrderCart(e) {
+  const btn = e.target.closest('[data-fast-order]');
+
   if (!btn) {
     return;
   }
-  const id = btn.dataset.id;
+  const orderForm = document.querySelector("#orderForm");
   const api = btn.dataset.link;
-  let response;
-  const data = {
-    '_token': _token,
-    'id': id
-  }
-  response = await getData(POST, data, api);
-  console.log(response.toggle)
-  setInBasketBtn(btn, response.toggle, response.desc)
-
-
-}
-
-function setInBasketBtn(el, toggle, desc) {
-  const parent = el.closest('[data-product-card]');
-  const iconBtn = parent.querySelector('[data-img-basket]');
-  const btn = parent.querySelector('[data-btn-basket]');
-  console.log(btn)
-  if (btn) {
-    toggleInBasketBtn(btn, toggle, desc)
-  }
-  if (iconBtn) {
-    toggleInBasketIconBtn(iconBtn, toggle)
-  }
-
-
-}
-
-function toggleInBasketIconBtn(btn, toggle = false) {
-  const pathToImage = './img/icon/basket-icon.svg';
-  const pathToImageActive = './img/icon/check-mark.svg';
-  if (toggle) {
-    btn.src = pathToImageActive;
-    return;
-  }
-  btn.src = pathToImage;
-
-}
-
-function toggleInBasketBtn(btn, toggle = false, desc) {
-  if (toggle) {
-    btn.innerHTML = desc;
-    return;
-  }
-  btn.innerHTML = desc;
-}
-
-async function addFavorite(e) {
-
-  const btn = e.target.closest('[data-add-favorite]');
-  if (!btn) {
-    return;
-  }
   const id = btn.dataset.id;
-  const api = btn.dataset.link;
-  let response;
+  let response = null;
+  let elStr = null;
   const data = {
-    '_token': _token,
-    'id': id
+    "_token": _token,
+    "id": id
   }
+
+  console.log(orderForm)
+
   response = await getData(POST, data, api);
-  console.log(response);
-  setFavoriteIcon(btn, response.toggle);
+  elStr = getMarkEl(response.content[0]);
+
+  orderForm.insertAdjacentHTML('afterbegin', elStr);
 
 
-}
 
-function setFavoriteIcon(el, boolean) {
-  const imgEl = el.querySelector('[data-img-favorite]');
-  console.log(boolean)
-  const pathToImage = './img/icon/favorite-icon.svg';
-  const pathToImageActive = './img/icon/favorite-icon-active.svg';
-  if (!boolean) {
-    imgEl.src = pathToImage;
-    return;
+
+  function getMarkEl(obj) {
+    console.log(obj)
+    return /*html*/`
+  <div id="${obj.id}" class="order-modal__item" data-order-card>
+    <img src="${obj.pic_fallback[0]}" alt="" class="order-modal__img">
+    <div class="order-modal__desc">
+    ${obj.title}
+    </div>
+  </div>
+  `
   }
-  imgEl.src = pathToImageActive;
-}
 
+  console.log(elStr);
+}
 
 // Добовлям фунцию для прокрутки сраницы вверх
 upBtn.addEventListener('click', goUp);
@@ -982,16 +938,19 @@ function orderInputsCheck() {
   }
 
   if (resCheck) {
-    sendOrderForm()
-
-
+    sendOrderForm();
   }
 
 
   function sendOrderForm() {
+    const card = orderForm.querySelector('[data-order-card]');
+    const id = card.getAttribute('id');
     const formData = new FormData(orderForm);
+    formData.append('_token', _token);
+    formData.append('id', id);
+
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", orderForm.action);
+    xhr.open(POST, orderForm.action);
     xhr.send(formData);
     xhr.onload = function () {
       if (xhr.status != 200) {
@@ -1209,4 +1168,90 @@ function getData(method, data, api) {
       reject(new Error("Network Error"))
     };
   })
+}
+
+async function addBasket(e) {
+
+  const btn = e.target.closest('[data-add-basket]');
+  if (!btn) {
+    return;
+  }
+  const id = btn.dataset.id;
+  const api = btn.dataset.link;
+  let response;
+  const data = {
+    '_token': _token,
+    'id': id
+  }
+  response = await getData(POST, data, api);
+  console.log(response.toggle)
+  setInBasketBtn(btn, response.toggle, response.desc)
+
+
+}
+
+function setInBasketBtn(el, toggle, desc) {
+  const parent = el.closest('[data-product-card]');
+  const iconBtn = parent.querySelector('[data-img-basket]');
+  const btn = parent.querySelector('[data-btn-basket]');
+  console.log(btn)
+  if (btn) {
+    toggleInBasketBtn(btn, toggle, desc)
+  }
+  if (iconBtn) {
+    toggleInBasketIconBtn(iconBtn, toggle)
+  }
+
+
+}
+
+function toggleInBasketIconBtn(btn, toggle = false) {
+  const pathToImage = './img/icon/basket-icon.svg';
+  const pathToImageActive = './img/icon/check-mark.svg';
+  if (toggle) {
+    btn.src = pathToImageActive;
+    return;
+  }
+  btn.src = pathToImage;
+
+}
+
+function toggleInBasketBtn(btn, toggle = false, desc) {
+  if (toggle) {
+    btn.innerHTML = desc;
+    return;
+  }
+  btn.innerHTML = desc;
+}
+
+async function addFavorite(e) {
+
+  const btn = e.target.closest('[data-add-favorite]');
+  if (!btn) {
+    return;
+  }
+  const id = btn.dataset.id;
+  const api = btn.dataset.link;
+  let response;
+  const data = {
+    '_token': _token,
+    'id': id
+  }
+  response = await getData(POST, data, api);
+  console.log(response);
+  setFavoriteIcon(btn, response.toggle);
+
+
+}
+
+function setFavoriteIcon(el, boolean) {
+  const imgEl = el.querySelector('[data-img-favorite]');
+  console.log(boolean)
+  const pathToImage = './img/icon/favorite-icon.svg';
+  const pathToImageActive = './img/icon/favorite-icon-active.svg';
+  if (!boolean) {
+    imgEl.src = pathToImage;
+    return;
+  }
+  imgEl.src = pathToImageActive;
 }

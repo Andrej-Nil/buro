@@ -15,8 +15,8 @@
 		"sale_price":	254656,
 		"count":20,
 		"units":	"",
-		"pic_webp":["./img/image/product-img.jpg"]	,
-		"pic_fallback":[],
+		"pic_webp":["./img/image/product-img.jpg"],
+		"pic_fallback":["./img/image/product-img.jpg"],
 		"favorite":	true,
 		"new": true
 	}

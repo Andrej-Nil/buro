@@ -243,51 +243,11 @@
   </div>
   <!--main-carousel-->
 
-  <!--main-delivery-->
-  <div class='delivery'>
-    <div class="container">
-      <h2 class="delivery__title">Методы доставки</h2>
-      <ul class="delivery__list">
-        <li class="delivery__item">
-          <div class="delivery__img-wrap">
-            <img src="./img/icon/ship-icon.svg" alt="" class="delivery__img">
-          </div>
-          <span class="delivery__name">
-            Морской транспорт
-          </span>
-        </li>
-        <li class="delivery__item">
-          <div class="delivery__img-wrap">
-            <img src="./img/icon/train-icon.svg" alt="" class="delivery__img">
-          </div>
-          <span class="delivery__name">
-            Ж/Д транспорт
-          </span>
-        </li>
-        <li class="delivery__item">
-          <div class="delivery__img-wrap">
-            <img src="./img/icon/truck-icon.svg" alt="" class="delivery__img">
-          </div>
-          <span class="delivery__name">
-            Грузоперевозки
-          </span>
-        </li>
-        <li class="delivery__item">
-          <div class="delivery__img-wrap">
-            <img src="./img/icon/airplane-icon.svg" alt="" class="delivery__img">
-          </div>
-          <p class="delivery__name">
-            Авиадоставка
-          </p>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--main-delivery-->
+
 
   <!--content-wrap-->
   <div class="content-wrap">
-    <img class="main-bg" src="./img/image/bg.jpg" alt="">
+    <!--<img class="main-bg" src="./img/image/bg.jpg" alt="">-->
     <div class="content">
       <div class="container">
 
@@ -533,10 +493,12 @@
                         </button>
                       </div>
 
-                      <button class="product-card__btn product-card__order dark-btn">
+                      <button class="product-card__btn product-card__order dark-btn" data-id="00"
+                        data-link="./test-ajax/in-basket.json" data-fast-order>
                         Заказать
                       </button>
-                      <button class="mobile-product-card__order dark-btn">
+                      <button class="product-card__btn mobile-product-card__order dark-btn" data-id="00"
+                        data-link="./test-ajax/in-basket.json" data-fast-order>
                         Заказать
                       </button>
                     </div>
@@ -2329,12 +2291,12 @@
         <h4 class="modal__title">Ваш заказ!</h4>
         <p class="modal__desc">Укажите количество товара, контактный телефон или почту</p>
         <form id='orderForm' class='order-modal__form' action="send.html" method="POST">
-          <div class="order-modal__item">
+          <!--<div class="order-modal__item">
             <img src="./img/image/section-img.jpg" alt="" class="order-modal__img">
             <div class="order-modal__desc">
               Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734
             </div>
-          </div>
+          </div>-->
           <p id="mailOrTel" class="modal__error error">Укажите почту или номер</p>
           <p class="modal__error error no-send">Произошла ошибка, данные не отправлены, вы можете связаться с нами по
             телефону 8 (421) 292-97-86 или по почте hab@metall-as.ru</p>
@@ -2345,7 +2307,7 @@
           <input id='inputTel' name='tel' class="modal__input order-modal__input input" data-type="tel" type="text"
             placeholder="+7 000-000-00-00">
           <div class="counter">
-            <input id='orderQuantity' name='orderQuantity' type="text" class="modal__input counter__input" value='1'
+            <input id='orderQuantity' name='count' type="text" class="modal__input counter__input" value='1'
               placeholder="Количество">
             <div id='incQuantity' class="counter__btn">
               <img src="./img/control/counter-inc.svg" alt="" class="counter__btn-img">
