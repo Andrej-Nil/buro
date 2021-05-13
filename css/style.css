@@ -464,7 +464,7 @@ li {
 
 @media (min-width: 600px) {
   .sticker-sale {
-    font-size: 30px;
+    font-size: 19px;
     padding: 5px 12px;
   }
 }
@@ -2474,6 +2474,7 @@ li {
 }
 
 .product-card__img-wrap {
+  position: static;
   width: 100%;
 }
 
@@ -2494,6 +2495,7 @@ li {
 
 @media (min-width: 1000px) {
   .product-card__img-wrap {
+    position: relative;
     border: 2px solid #ff949c;
   }
 }
@@ -2596,6 +2598,19 @@ li {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+.product-card__sticker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 1000px) {
+  .product-card__sticker {
+    top: -2px;
+    left: -2px;
   }
 }
 
