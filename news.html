@@ -1667,6 +1667,28 @@
 
   <!--modal-windows-->
   <div id="shading" class='shading'>
+    <!--faq group-->
+
+
+    <div id='faqThanks' class="faq-modal modal">
+      <div class="close">
+        <span class="close__word close-btn">
+          Закрыть
+        </span>
+        <img src="./img/control/close-modal.svg" alt="" class="close__icon close-btn">
+      </div>
+
+      <div class="modal__content modal-thanks ">
+        <img class='modal-thanks__icon' src="./img/icon/success-icon.svg" alt="">
+        <div class="modal-thanks__text">
+          <h4 class="modal__title">Спасибо!</h4>
+          <p class='modal-thanks__desc'>
+            Ваша ворос отправлен<br />
+            Скоро мы ответим вам на почту</p>
+        </div>
+      </div>
+    </div>
+    <!--faq group-->
 
     <!--Заявка группа-->
     <div id='applicationModal' class="application-modal modal">
@@ -1715,8 +1737,55 @@
     </div>
     <!--Заявка группа-->
 
-  </div>
+    <!--заказ-->
+    <div id='order' class="order-modal modal">
+      <div class="close">
+        <span class="close__word close-btn" data-close-btn>
+          Закрыть
+        </span>
+        <img src="./img/control/close-modal.svg" alt="" class="close__icon close-btn" data-close-btn>
+      </div>
+      <div class="modal__content">
+        <h4 class="modal__title">Ваш заказ!</h4>
+        <p class="modal__desc">Укажите количество товара, контактный телефон или почту</p>
+        <form id='orderForm' class='order-modal__form' action="send.html" method="POST">
+          <div class="order-modal__product" data-order-item>
 
+          </div>
+          <p id="mailOrTel" class="modal__error error">Укажите почту или номер</p>
+          <p class="modal__error error no-send">Произошла ошибка, данные не отправлены, вы можете связаться с нами по
+            телефону 8 (421) 292-97-86 или по почте hab@metall-as.ru</p>
+          <p id="errorMail" class="modal__error error mail">Неправильна указана почта</p>
+          <input id='inputMail' name='mail' class="modal__input order-modal__input input" data-type="email" type="text"
+            placeholder="Ваша почта">
+          <p id="errorTel" class="modal__error error phone">Неправильно указан номер</p>
+          <input id='inputTel' name='tel' class="modal__input order-modal__input input" data-type="tel" type="text"
+            placeholder="+7 000-000-00-00">
+          <div class="counter">
+            <input id='orderQuantity' name='count' type="text" class="modal__input counter__input" value='1'
+              placeholder="Количество">
+            <div id='incQuantity' class="counter__btn">
+              <img src="./img/control/counter-inc.svg" alt="" class="counter__btn-img">
+
+            </div>
+            <div id='decQuantity' class="counter__btn">
+              <img src="./img/control/counter-dec.svg" alt="" class="counter__btn-img">
+            </div>
+          </div>
+          <div class="order-modal__buy">
+            <p class="order-modal__total-price">
+              <span class='order-modal__total'>Общая стоимость:</span>
+
+              <span id='orderPrice' data-price="65000" class="order-modal__price">65 000</span>
+            </p>
+            <input class="order-modal__submit modal__submit light-btn" type="submit" value="Отправить">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--заказ-->
+
+  </div>
   <!--modal-windows-->
 
 

@@ -502,15 +502,6 @@
                         Заказать
                       </button>
                     </div>
-
-                    <!--<div class="buy-mobile">
-                      <p class="buy-mobile__price">
-                        65 000 <span class="buy-mobile__curenncy">₽</span>
-                        <button class="product-card__btn mobile-card__order dark-btn">
-                          Заказать
-                        </button>
-                      </p>
-                    </div>-->
                   </div>
                 </div>
               </div>
@@ -2282,21 +2273,18 @@
     <!--заказ-->
     <div id='order' class="order-modal modal">
       <div class="close">
-        <span class="close__word close-btn">
+        <span class="close__word close-btn" data-close-btn>
           Закрыть
         </span>
-        <img src="./img/control/close-modal.svg" alt="" class="close__icon close-btn">
+        <img src="./img/control/close-modal.svg" alt="" class="close__icon close-btn" data-close-btn>
       </div>
       <div class="modal__content">
         <h4 class="modal__title">Ваш заказ!</h4>
         <p class="modal__desc">Укажите количество товара, контактный телефон или почту</p>
         <form id='orderForm' class='order-modal__form' action="send.html" method="POST">
-          <!--<div class="order-modal__item">
-            <img src="./img/image/section-img.jpg" alt="" class="order-modal__img">
-            <div class="order-modal__desc">
-              Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734
-            </div>
-          </div>-->
+          <div class="order-modal__product" data-order-item>
+
+          </div>
           <p id="mailOrTel" class="modal__error error">Укажите почту или номер</p>
           <p class="modal__error error no-send">Произошла ошибка, данные не отправлены, вы можете связаться с нами по
             телефону 8 (421) 292-97-86 или по почте hab@metall-as.ru</p>

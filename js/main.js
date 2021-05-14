@@ -71,6 +71,7 @@ async function renderOrderCart(e) {
     return;
   }
   const orderForm = document.querySelector("#orderForm");
+  const orderItem = orderForm.querySelector("[data-order-item]");
   const api = btn.dataset.link;
   const id = btn.dataset.id;
   let response = null;
@@ -80,12 +81,11 @@ async function renderOrderCart(e) {
     "id": id
   }
 
-  console.log(orderForm)
-
   response = await getData(POST, data, api);
   elStr = getMarkEl(response.content[0]);
 
-  orderForm.insertAdjacentHTML('afterbegin', elStr);
+
+  orderItem.insertAdjacentHTML('afterbegin', elStr);
 
 
 
@@ -144,6 +144,11 @@ if (order) {
     e.preventDefault()
     orderFormCheck()
   })
+
+  order.addEventListener('click', removeOrderCard);
+
+
+
 
   //Добовляем функцию для окраничение ввода в поле количесво товоров
   orderQuantityInput.addEventListener('input', () => {
@@ -944,6 +949,7 @@ function orderInputsCheck() {
 
   function sendOrderForm() {
     const card = orderForm.querySelector('[data-order-card]');
+    const orderItem = orderForm.querySelector('[data-order-item]');
     const id = card.getAttribute('id');
     const formData = new FormData(orderForm);
     formData.append('_token', _token);
@@ -964,6 +970,7 @@ function orderInputsCheck() {
           applicationThanks.classList.add('modal--is-show');
           console.log("Форма отправилась");
           clearInputs(orderFormInputs);
+          orderItem.innerHTML = '';
         } else {
           noSend(orderForm);
           console.log("Неудачная отправка");
@@ -1025,12 +1032,6 @@ const yandexmap = document.querySelector('#yandexmap'); // блок отобра
 if (yandexmap) {
   let map;
   let marker;
-  // Координаты
-  // Для изменение координат, необходимо 
-  // записать новое значенить в атребуте 
-  // "data-coord" в блоке id='yandexmap'
-  // певое значение ширина, второе долгота
-  // через запятую
   const dataCoord = yandexmap.getAttribute('data-coord')
   const coordinates = dataCoord.split(',');
 
@@ -1254,4 +1255,13 @@ function setFavoriteIcon(el, boolean) {
     return;
   }
   imgEl.src = pathToImageActive;
+}
+
+function removeOrderCard(e) {
+  const orderItem = order.querySelector('[data-order-item]')
+  const btn = e.target.closest('[data-close-btn]');
+  if (btn) {
+    orderItem.innerHTML = '';
+  }
+
 }
