@@ -306,7 +306,6 @@ if (slider) {
       }
     })
 
-
     return index;
   }
 
@@ -1271,5 +1270,4 @@ function removeOrderCard(e) {
     orderItem.innerHTML = '';
     orderCounter.value = 1;
   }
-
 }

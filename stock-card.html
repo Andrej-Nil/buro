@@ -123,7 +123,7 @@
         <div class="cols-wrap">
           <!--col-content-->
           <div class="col-content">
-            <div class="desc-block-wrap">
+            <div class="desc-block-wrap" data-product-card>
               <div class="desc-block">
                 <div class="desc-block__content desc-block--with-slider">
                   <h3 class="news__title desc-block__title">Труба холоднодеформированная 16х2.5мм ст. 20 ГОСТ 8734</h3>
@@ -147,6 +147,25 @@
                           000</span></p>
                     </div>
                     <div class="desc-block__order">
+
+                      <div class="desc-block__add">
+                        <span class='desc-block__add-item' data-id="00" data-link="./test-ajax/in-favorite.json"
+                          data-add-favorite>
+                          <img data-img-favorite src="./img/icon/favorite-icon.svg" alt=""
+                            class="product-card__item-img">
+                        </span>
+
+                        <span class='desc-block__add-item desc-block__add-basket' data-id="00"
+                          data-link="./test-ajax/in-basket.json" data-add-basket>
+                          <img data-img-basket src="./img/icon/basket-icon.svg" alt="" class="product-card__item-img">
+                        </span>
+
+                        <button class="desc-block__in-basket dark-btn" data-id="00"
+                          data-link="./test-ajax/in-basket.json" data-add-basket data-btn-basket>
+                          В корзину
+                        </button>
+                      </div>
+
                       <button class="product-card__btn desc-block__btn dark-btn" data-id="00"
                         data-link="./test-ajax/in-basket.json" data-fast-order>
                         Заказать
@@ -2043,7 +2062,7 @@
             placeholder="+7 000-000-00-00">
           <div class="counter">
             <input id='orderQuantity' name='count' type="text" class="modal__input counter__input" value='1'
-              placeholder="Количество">
+              placeholder="Количество" order-counter>
             <div id='incQuantity' class="counter__btn">
               <img src="./img/control/counter-inc.svg" alt="" class="counter__btn-img">
 
