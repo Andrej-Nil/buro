@@ -72,6 +72,8 @@ async function renderOrderCart(e) {
   }
   const orderForm = document.querySelector("#orderForm");
   const orderItem = orderForm.querySelector("[data-order-item]");
+  const price = orderForm.querySelector("[data-price]");
+  const priceTotal = orderForm.querySelector("[data-price-total]");
   const api = btn.dataset.link;
   const id = btn.dataset.id;
   let response = null;
@@ -83,9 +85,11 @@ async function renderOrderCart(e) {
 
   response = await getData(POST, data, api);
   elStr = getMarkEl(response.content[0]);
-
-
   orderItem.insertAdjacentHTML('afterbegin', elStr);
+  console.log(response.content[0].sale_price);
+  price.dataset.price = response.content[0].sale_price
+  priceTotal.innerHTML = response.content[0].sale_price.toLocaleString()
+
 
 
 
@@ -950,6 +954,7 @@ function orderInputsCheck() {
   function sendOrderForm() {
     const card = orderForm.querySelector('[data-order-card]');
     const orderItem = orderForm.querySelector('[data-order-item]');
+    const orderCounter = orderForm.querySelector('[order-counter]');
     const id = card.getAttribute('id');
     const formData = new FormData(orderForm);
     formData.append('_token', _token);
@@ -970,6 +975,7 @@ function orderInputsCheck() {
           applicationThanks.classList.add('modal--is-show');
           console.log("Форма отправилась");
           clearInputs(orderFormInputs);
+          orderCounter.value = 1;
           orderItem.innerHTML = '';
         } else {
           noSend(orderForm);
@@ -1258,10 +1264,12 @@ function setFavoriteIcon(el, boolean) {
 }
 
 function removeOrderCard(e) {
-  const orderItem = order.querySelector('[data-order-item]')
+  const orderItem = order.querySelector('[data-order-item]');
+  const orderCounter = order.querySelector('[order-counter]');
   const btn = e.target.closest('[data-close-btn]');
   if (btn) {
     orderItem.innerHTML = '';
+    orderCounter.value = 1;
   }
 
 }
