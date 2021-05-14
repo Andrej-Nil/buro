@@ -18,7 +18,7 @@
   justify-content: center;
   border: 1px solid #fff;
 
-  background: $l-d-red;
+  background: $d-l-base;
   margin-right: 10px;
 
   font-family: "Avenir", sans-serif;
@@ -31,25 +31,25 @@
     margin-right: 0;
   }
   @media (min-width: 1000px) {
-    background: $red;
+    background: $base;
     font-size: 25px;
     transition: 0.2s ease-in-out;
     &:hover {
-      background: $l-red;
+      background: $l-base;
     }
   }
 }
 
 .pagination__link--no-hover {
   &:hover {
-    background: $red;
+    background: $base;
   }
 }
 
 .pagination__link--is-active {
-  border: 1px solid $red;
+  border: 1px solid $base;
   background: #fff;
-  color: $red;
+  color: $base;
   @media (min-width: 1000px) {
     border: 1px solid #fff;
   }

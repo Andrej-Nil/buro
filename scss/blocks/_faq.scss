@@ -12,7 +12,7 @@
 .faq-question {
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  color: $d-red;
+  color: $d-base;
   border-top: 1px solid #e5e5e5;
   cursor: pointer;
   &:last-child {
@@ -25,7 +25,7 @@
     line-height: 120%;
     color: #fff;
     margin-bottom: 15px;
-    background: $red;
+    background: $base;
     border: none;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
     &:last-child {
@@ -35,10 +35,10 @@
 }
 
 .faq-question.is-active {
-  background: $l-d-red;
+  background: $d-l-base;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   @media (min-width: 1000px) {
-    background: $red;
+    background: $base;
   }
 }
 
@@ -48,7 +48,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 120%;
-  color: $d-red;
+  color: $d-base;
   position: relative;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 120%;
-  color: $l-red;
+  color: $l-base;
 
   @media (min-width: 1000px) {
     font-weight: 300;
@@ -127,10 +127,10 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
   margin-bottom: 20px;
   @media (min-width: 1000px) {
-    color: $l-red;
+    color: $l-base;
     margin-bottom: 15px;
   }
 }
@@ -145,7 +145,7 @@
 .faq-form__error {
   font-size: 18px;
   margin-bottom: 10px;
-  color: $b-red;
+  color: $b-base;
   @media (min-width: 1000px) {
     color: #ffffff;
   }
@@ -155,14 +155,14 @@
   width: 100%;
   padding: 12px 24px;
   outline: none;
-  border: 1px solid $red;
+  border: 1px solid $base;
 
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
-  color: $d-red;
+  color: $d-base;
   @media (min-width: 1000px) {
     width: 100%;
     padding: 13px 24px;
@@ -174,7 +174,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    color: $d-red;
+    color: $d-base;
   }
 }
 

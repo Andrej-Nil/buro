@@ -11,7 +11,7 @@
 
 .news {
   //margin-bottom: 50px;
-  background: $l-d-red;
+  background: $d-l-base;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   &:last-child {
     margin-bottom: 0;
@@ -30,7 +30,7 @@
     flex-direction: row-reverse;
   }
   @media (min-width: 1000px) {
-    background: $red;
+    background: $base;
   }
   @media (min-width: 1280px) {
     background: none;
@@ -49,7 +49,7 @@
     padding: 0 15px;
   }
   @media (min-width: 1280px) {
-    background: $red;
+    background: $base;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
     padding: 41px 37px 30px 282px;
     margin-left: auto;
@@ -127,7 +127,7 @@
     transform: translate(0, 0);
     width: 100px;
     height: 100px;
-    border: 2px solid $l-red;
+    border: 2px solid $l-base;
   }
   @media (min-width: 450px) {
     width: 150px;

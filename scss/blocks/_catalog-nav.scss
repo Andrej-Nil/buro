@@ -22,11 +22,11 @@
   font-weight: normal;
   font-size: 20px;
   line-height: 95.2%;
-  color: $red;
+  color: $base;
   border: 2px solid #fff;
   transition: 0.2s ease-in-out;
   &:focus {
-    border: 2px solid $l-red;
+    border: 2px solid $l-base;
   }
 }
 
@@ -65,7 +65,7 @@
 
 .nav-catalog {
   width: 100%;
-  background: $red;
+  background: $base;
   padding: 20px 16px;
 }
 

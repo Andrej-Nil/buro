@@ -1,0 +1,167 @@
+.basket {
+  padding: 0 15px;
+  margin-bottom: 50px;
+  @media (min-width: 1000px) {
+    padding: 0;
+  }
+}
+
+.basket-card {
+  position: relative;
+
+  padding: 10px;
+  border: 1px solid $base;
+  @media (min-width: 400px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+.basket-card__remove {
+  background: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  @media (min-width: 400px) {
+  }
+}
+.basket-card__remove-img {
+  width: 100%;
+}
+.basket-card__preview {
+  margin: 0 0 10px 0;
+
+  @media (min-width: 400px) {
+    margin: 0 10px 0 0;
+    min-width: 60px;
+    height: auto;
+  }
+  @media (min-width: 535px) {
+    min-width: 164px;
+    width: 164px;
+    height: 164px;
+  }
+  @media (min-width: 1000px) {
+    min-width: 136px;
+    width: 136px;
+    height: 136px;
+  }
+  @media (min-width: 1280px) {
+    margin: 0 10px 0 0;
+    min-width: 120px;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.basket-card__img {
+  width: 100%;
+  height: 100%;
+}
+
+.basket-card__body {
+  flex-grow: 1;
+  @media (min-width: 400px) {
+    padding: 25px 0 0 0;
+  }
+  @media (min-width: 1000px) {
+    padding: 0;
+  }
+}
+.basket-card__title {
+  font-size: 19px;
+  margin-bottom: 15px;
+  @media (min-width: 1000px) {
+    max-width: 350px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 620px;
+  }
+}
+
+.basket-card__link {
+  color: $base;
+}
+.basket-card__price {
+  font-size: 20px;
+  font-weight: 500;
+  color: $l-base;
+  margin-bottom: 10px;
+}
+
+.basket-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.basket-card__counter {
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+.basket-card__counter-input {
+  margin-bottom: 0;
+  @media (min-width: 400px) {
+    padding: 10px 10px;
+  }
+}
+.basket-card__add {
+  display: flex;
+}
+
+.basket-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 15px;
+  background-color: $base;
+  @media (min-width: 700px) {
+    flex-direction: row;
+  }
+}
+
+.basket-info__col {
+  width: 100%;
+  margin-bottom: 20px;
+  @media (min-width: 700px) {
+    width: 48%;
+  }
+}
+
+.basket-making__title {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.basket-making__total {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.basket-making__total-num {
+  font-weight: 600;
+  font-size: 25px;
+  color: $l-base;
+}
+
+.basket-form__title {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.basket-form__message {
+  margin-bottom: 10px;
+  color: $b-base;
+  font-size: 20px;
+}
+
+.basket-form__input {
+  margin-bottom: 15px;
+}
+
+.basket-form__submit {
+  width: 100%;
+}

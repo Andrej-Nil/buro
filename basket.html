@@ -127,11 +127,89 @@
   <div class="content-wrap">
     <div class="content">
       <div class="container">
-
+        <!--path-->
+        <div class="path-wrap">
+          <div class="path">
+            <a href="index.html" class="path__link">Главная</a>
+            <span class="path__slash">/</span>
+            <a href="basket.html" class="path__link">Корзина</a>
+          </div>
+        </div>
+        <!--path-->
         <div class="cols-wrap">
           <!--col-content-->
           <div class="col-content">
+            <h2 class="section-title section-title--white h2">Корзина</h2>
 
+            <div id="basket" class="basket">
+              <div class="basket__list">
+                <div id='00' class="basket-card" data-product-card>
+                  <div class="basket-card__remove">
+                    <img src="./img/control/remove.svg" alt="" class="basket-card__remove-img">
+                  </div>
+                  <div class="basket-card__preview">
+                    <img src="./img/image/product-midddle.jpg" alt="" class="basket-card__img">
+                  </div>
+                  <div class="basket-card__body">
+                    <h2 class="basket-card__title">
+                      <a class='basket-card__link link' href="product-card.html">Труба
+                        холоднодеформированная 16х2.5мм ст. 20
+                        ГОСТ 8734
+                      </a>
+                    </h2>
+                    <div class="basket-card__price">
+                      Цена: 35 000 p
+                    </div>
+                    <div class="basket-card__footer">
+                      <div class="counter basket-card__counter">
+                        <input name='count' type="text" class="modal__input basket-card__counter-input counter__input"
+                          value='1' placeholder="Количество">
+                        <div class="counter__btn">
+                          <img src="./img/control/counter-inc.svg" alt="" class="counter__btn-img">
+                        </div>
+                        <div class="counter__btn">
+                          <img src="./img/control/counter-dec.svg" alt="" class="counter__btn-img">
+                        </div>
+                      </div>
+
+                      <div class="basket-card__add">
+
+                        <span class='product-card__add-item' data-id="00" data-link="./test-ajax/in-favorite.json"
+                          data-add-favorite>
+                          <img data-img-favorite src="./img/icon/favorite-icon.svg" alt=""
+                            class="product-card__item-img">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="basket-info">
+              <form class='basket-form basket-info__col'>
+                <h3 class="basket-form__title">Оформление заказа</h3>
+                <div class="basket-form__message">текс сообщения</div>
+                <input name='name' class="modal__input basket-form__input input" type="text"
+                  placeholder="What is your name">
+                <input name='tel' class="modal__input basket-form__input input" type="text"
+                  placeholder="+7 000-000-00-00">
+                <input name='mail' class="modal__input basket-form__input input" type="text" placeholder="what@what.ru">
+                <input class="basket-form__submit modal__submit light-btn" type="submit" value="Оформить заказ">
+              </form>
+              <div class="basket-making basket-info__col">
+                <h3 class="basket-making__title">Информация о заказе</h3>
+                <div class="basket-making__total">
+                  <span class="basket-making__total-text">Общее количество:</span>
+                  <span class="basket-making__total-num">30</span>
+                </div>
+                <div class="basket-making__total">
+                  <span class="basket-making__total-text">Общая цена:</span>
+                  <span class="basket-making__total-num">90 000</span> <span class="basket-making__total-mark">₽</span>
+                </div>
+              </div>
+            </div>
           </div>
           <!--col-content-->
           <!--col-nav-->
@@ -1702,7 +1780,7 @@
   </div>
   <!--modal-windows-->
 
-  <script src='./js/main.min.js'></script>
+  <script src='./js/main.js'></script>
 </body>
 
 </html>

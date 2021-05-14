@@ -1,12 +1,12 @@
 .delivery {
   padding: 30px 15px;
   order: 4;
-  background: $l-d-red;
+  background: $d-l-base;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   @media (min-width: 1000px) {
-    border-top: 1px solid $d-red;
+    border-top: 1px solid $d-base;
     box-shadow: none;
-    background: $red;
+    background: $base;
     display: flex;
     order: 3;
   }
@@ -22,7 +22,7 @@
   font-weight: bold;
   font-size: 30px;
   line-height: 95.2%;
-  color: $l-red;
+  color: $l-base;
   margin-bottom: 20px;
   @media (min-width: 1000px) {
     font-family: "Avenir", sans-serif;

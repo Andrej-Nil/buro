@@ -75,7 +75,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
-  color: $d-red;
+  color: $d-base;
   margin-bottom: 20px;
   @media (min-width: 650px) {
     margin-bottom: 30;
@@ -89,7 +89,7 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 100%;
-  color: $red;
+  color: $base;
   margin-bottom: 20px;
   @media (min-width: 650px) {
     font-weight: 300;
@@ -99,7 +99,7 @@
 }
 
 .modal__error {
-  color: $b-red;
+  color: $b-base;
   margin-bottom: 10px;
 }
 
@@ -115,7 +115,7 @@
   width: 100%;
   outline: none;
   height: 50px;
-  border: 1px solid $d-red;
+  border: 1px solid $d-base;
   padding: 10px 26px;
 
   font-family: "Roboto", sans-serif;
@@ -123,7 +123,7 @@
   font-weight: 300;
   font-size: 25px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
   margin-bottom: 10px;
   @media (min-width: 540px) {
     margin-bottom: 0;
@@ -217,7 +217,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 130%;
-  color: $red;
+  color: $base;
   @media (min-width: 650px) {
     font-weight: 300;
     font-size: 25px;
@@ -253,7 +253,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 100%;
-  color: $d-red;
+  color: $d-base;
   @media (min-width: 450px) {
     font-weight: 500;
     font-size: 20px;
@@ -331,7 +331,7 @@
 
 .counter__btn {
   flex: 0 0 50px;
-  border: 1px solid $d-red;
+  border: 1px solid $d-base;
   width: 50px;
   height: 50px;
   border-left: none;
@@ -364,7 +364,7 @@
   font-weight: 500;
   font-size: 20px;
 
-  color: $d-red;
+  color: $d-base;
   margin-bottom: 30px;
   @media (min-width: 580px) {
     margin-bottom: 0;
@@ -382,7 +382,7 @@
   padding-left: 10px;
   font-size: 40px;
   line-height: 100%;
-  color: $red;
+  color: $base;
 }
 
 .order-modal__submit {

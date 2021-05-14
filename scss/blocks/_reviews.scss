@@ -36,10 +36,10 @@
 
 .review__content {
   padding: 28px 10px 14px;
-  background: $d-l-red;
+  background: $d-l-base;
   @media (min-width: 1000px) {
     padding: 33px 33px 30px 119px;
-    background: $red;
+    background: $base;
   }
 }
 
@@ -75,7 +75,7 @@
   top: 0px;
   width: 90px;
   height: 90px;
-  border: 2px solid $l-red;
+  border: 2px solid $l-base;
   @media (min-width: 1000px) {
     top: 23px;
     width: 150px;

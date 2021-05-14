@@ -81,9 +81,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 95.2%;
-  color: $b-red;
+  color: $b-base;
   @media (min-width: 1000px) {
-    color: $l-red;
+    color: $l-base;
   }
 }
 
@@ -94,7 +94,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
 
   @media (min-width: 1000px) {
     color: #ffffff;
@@ -112,7 +112,7 @@
   display: block;
   width: 100%;
   outline: none;
-  border: 1px solid $d-red;
+  border: 1px solid $d-base;
   background: #fff;
   height: 50px;
   padding: 12px 18px;
@@ -123,12 +123,12 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 95.2%;
-  color: $red;
+  color: $base;
   @media (min-width: 1000px) {
     width: 226px;
     height: 40px;
     border: 1px solid #ffffff;
-    background: $red;
+    background: $base;
     color: #fff;
   }
 }

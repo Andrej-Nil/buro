@@ -1,18 +1,18 @@
 //основные цвета
-$b-red: #ff0000;
-//$red: #861119;
-$red: rgb(20, 20, 20);
-//$l-red: #ff949c;
-$l-red: #c40b17;
-$d-red: #1f1e1e;
-$d-l-red: radial-gradient(308.6% 100% at 30.62% 0%, #222 0%, #444 100%);
-$l-d-red: radial-gradient(308.6% 100% at 30.62% 0%, #444 0%, #222 100%);
+$b-base: #ff0000;
+//$base: #861119;
+$base: #141414;
+//$l-base: #ff949c;
+$l-base: #c40b17;
+$d-base: #1f1e1e;
+$d-l-base: radial-gradient(308.6% 100% at 30.62% 0%, #222 0%, #444 100%);
+$l-d-base: radial-gradient(308.6% 100% at 30.62% 0%, #444 0%, #222 100%);
 
 $grey: #808080;
 $l-grey: #ccc;
-//$hover-red: #ffc6ca;
-$hover-red: #e0787f;
-$active-red: #ffa1a7;
+//$hover-base: #ffc6ca;
+$hover-base: #e0787f;
+$active-base: #ffa1a7;
 
 * {
   margin: 0;
@@ -44,7 +44,7 @@ h2,
   font-weight: bold;
   font-size: 30px;
   line-height: 110%;
-  color: $red;
+  color: $base;
   @media (min-width: 1000px) {
     font-family: "Avenir", sans-serif;
     font-size: 40px;
@@ -80,7 +80,7 @@ h4,
   font-weight: bold;
   font-size: 30px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
   margin-bottom: 40px;
   @media (min-width: 1000px) {
     padding: 0;
@@ -96,7 +96,7 @@ a {
   color: #fff;
   transition: 0.2s ease-in-out;
   &:hover {
-    color: $l-red;
+    color: $l-base;
   }
 }
 
@@ -227,24 +227,24 @@ li {
 .light-btn {
   display: inline-block;
   padding: 12px 42px;
-  background: $l-red;
+  background: $l-base;
 
   font-family: "Avenir", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
   text-align: center;
   transition: 0.2s ease-in;
   outline: none;
   cursor: pointer;
   &:hover {
-    background: $hover-red;
+    background: $hover-base;
   }
 
   &:active {
-    background: $l-red;
+    background: $l-base;
   }
 }
 
@@ -255,21 +255,21 @@ li {
   font-weight: normal;
   font-size: 20px;
   line-height: 95.2%;
-  color: $l-red;
-  background: $red;
-  border: 1px solid $l-red;
+  color: $l-base;
+  background: $base;
+  border: 1px solid $l-base;
   padding: 12px 46px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
   transition: 0.2s ease-in-out;
   outline: none;
   cursor: pointer;
   &:hover {
-    background: $hover-red;
-    color: $red;
+    background: $hover-base;
+    color: $base;
   }
   &:active {
-    background: $active-red;
-    color: $d-red;
+    background: $active-base;
+    color: $d-base;
   }
 }
 
@@ -310,7 +310,7 @@ li {
   font-weight: normal;
   font-size: 15px;
   line-height: 100%;
-  color: $red;
+  color: $base;
   @media (min-width: 1280px) {
     font-size: 20px;
   }
@@ -324,7 +324,7 @@ li {
 .path__link {
   color: $grey;
   &:hover {
-    color: $red;
+    color: $base;
   }
 }
 
@@ -334,7 +334,7 @@ li {
   @media (min-width: 330px) {
     padding: 17px 15px 15px;
   }
-  background: $l-d-red;
+  background: $d-l-base;
   @media (min-width: 1000px) {
     background: none;
     padding: 0;
@@ -352,7 +352,7 @@ li {
     padding: 0;
   }
   @media (min-width: 1000px) {
-    background: $red;
+    background: $base;
     flex-direction: column-reverse;
     position: relative;
     max-width: 844px;
@@ -377,7 +377,7 @@ li {
   display: flex;
   flex-direction: column;
   @media (min-width: 1280px) {
-    background: $red;
+    background: $base;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
     padding: 41px 37px 30px 282px;
     margin-left: auto;
@@ -468,7 +468,7 @@ li {
   margin: 0 auto;
   width: 100%;
   height: auto;
-  border: 2px solid $l-red;
+  border: 2px solid $l-base;
   @media (min-width: 1000px) {
     max-width: 300px;
     max-height: 300px;
@@ -599,7 +599,7 @@ li {
 }
 
 .desc-block__m-price--blue {
-  color: $l-red;
+  color: $l-base;
 }
 
 .desc-block__btn {
@@ -621,7 +621,7 @@ li {
 }
 
 .desc-block__price-num--blue {
-  color: $l-red;
+  color: $l-base;
 }
 
 .desc-block__sticker {
@@ -676,7 +676,7 @@ li {
   @media (min-width: 1000px) {
     width: 80px;
     height: 80px;
-    background: $red;
+    background: $base;
   }
 }
 

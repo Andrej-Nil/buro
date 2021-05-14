@@ -22,7 +22,7 @@
 .search-mobile__input {
   padding: 13px 15px;
   outline: none;
-  border: 1px solid $red;
+  border: 1px solid $base;
   width: 100%;
 
   font-family: "Avenir", sans-serif;
@@ -30,7 +30,7 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 95.2%;
-  color: $d-red;
+  color: $d-base;
 }
 
 .search-mobile__input::placeholder {

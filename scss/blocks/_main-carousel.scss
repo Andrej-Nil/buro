@@ -5,7 +5,7 @@
   order: 2;
   overflow: hidden;
   transition: 0.2s ease-in-out;
-  background: $d-l-red;
+  background: $d-l-base;
 }
 
 .m-c__slides {
@@ -16,7 +16,7 @@
   overflow: hidden;
   min-width: 100%;
   min-height: 200px;
-  background: $d-l-red;
+  background: $d-l-base;
 }
 
 .m-c-slide__content {
@@ -137,7 +137,7 @@
   font-weight: 700;
   font-size: 35px;
   line-height: 100%;
-  color: $l-red;
+  color: $l-base;
   @media (min-width: 600px) {
     line-height: 100%;
     font-size: 35px;
