@@ -28,6 +28,8 @@ const applicationThanks = document.querySelector('#applicationThanks');// усп
 const order = document.querySelector('#order') // заказ(окно)
 const orderForm = document.querySelector('#orderForm');
 const orderQuantityInput = document.querySelector('#orderQuantity');
+const basket = document.querySelector('#basket');
+const basketForm = document.querySelector('#basketForm');
 const incQuantityBtn = document.querySelector('#incQuantity');
 const decQuantityBtn = document.querySelector('#decQuantity');
 const orderPrice = document.querySelector('#orderPrice');
@@ -63,51 +65,137 @@ document.addEventListener('click', addFavorite);
 document.addEventListener('click', addBasket);
 document.addEventListener('click', renderOrderCart);
 
+if (basket) {
+  basket.addEventListener('click', removeBasketCard)
+}
 
-async function renderOrderCart(e) {
-  const btn = e.target.closest('[data-fast-order]');
-
+async function removeBasketCard(e) {
+  const btn = e.target.closest('[data-remove]');
   if (!btn) {
     return;
   }
-  const orderForm = document.querySelector("#orderForm");
-  const orderItem = orderForm.querySelector("[data-order-item]");
-  const price = orderForm.querySelector("[data-price]");
-  const priceTotal = orderForm.querySelector("[data-price-total]");
+  const card = btn.closest('[data-product-card]');
+  const basketList = document.querySelector('#basketList');
+  const totalBasketCount = document.querySelector('#totalBasketCount');
+  const totalBasketPrice = document.querySelector('#totalBasketPrice');
   const api = btn.dataset.link;
   const id = btn.dataset.id;
-  let response = null;
-  let elStr = null;
   const data = {
-    "_token": _token,
-    "id": id
+    '_token': _token,
+    'id ': id
   }
+  const response = await getData(POST, data, api);
 
-  response = await getData(POST, data, api);
-  elStr = getMarkEl(response.content[0]);
-  orderItem.insertAdjacentHTML('afterbegin', elStr);
-  console.log(response.content[0].sale_price);
-  price.dataset.price = response.content[0].sale_price
-  priceTotal.innerHTML = response.content[0].sale_price.toLocaleString()
-
-
-
-
-
-  function getMarkEl(obj) {
-    console.log(obj)
-    return /*html*/`
-  <div id="${obj.id}" class="order-modal__item" data-order-card>
-    <img src="${obj.pic_fallback[0]}" alt="" class="order-modal__img">
-    <div class="order-modal__desc">
-    ${obj.title}
-    </div>
-  </div>
-  `
+  if (response.res) {
+    totalBasketCount.innerHTML = response.card.count;
+    totalBasketPrice.innerHTML = response.card.total_price.toLocaleString();
+    basketList.removeChild(card);
   }
+  //console.log(basketList, totalBasketCount, totalBasketPrice);
 
-  console.log(elStr);
 }
+
+if (basketForm) {
+  basketForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+  })
+  sendBasketForm()
+}
+
+function sendBasketForm() {
+  const inputTel = basketForm.querySelector('[name="tel"]');
+  const inputMail = basketForm.querySelector('[name="mail"]');
+  const inputName = basketForm.querySelector('[name="name"]');
+  const submit = basketForm.querySelector('#subminBasket');
+  inputTel.addEventListener('blur', () => {
+    const value = inputTel.value.trim();
+    const res = regexСheck(value, regTel);
+
+    if (!res) {
+      inputTel.classList.add('basket-form__input--is-error')
+    }
+    if (res) {
+      inputTel.classList.remove('basket-form__input--is-error')
+    }
+  })
+
+  inputMail.addEventListener('blur', () => {
+    const value = inputMail.value.trim();
+    const res = regexСheck(value, regMail);
+    if (!res) {
+      inputMail.classList.add('basket-form__input--is-error')
+    }
+    if (res) {
+      inputMail.classList.remove('basket-form__input--is-error')
+    }
+  })
+
+  submit.addEventListener('click', sendBasket)
+
+  async function sendBasket() {
+    const api = submit.dataset.link;
+    const valueTel = inputTel.value.trim();
+    const valueMail = inputMail.value.trim();
+    const basketList = document.querySelector('#basketList');
+    const basketFormMsg = basketForm.querySelector('#basketFormMsg');
+    const totalBasketCount = document.querySelector('#totalBasketCount');
+    const totalBasketPrice = document.querySelector('#totalBasketPrice');
+    let response = null;
+    let res = true;
+    let data = null;
+    if (!valueTel) {
+      inputTel.classList.add('basket-form__input--is-error');
+      res = false;
+    } else {
+      res = regexСheck(valueTel, regTel) && res;
+      if (!res) {
+        inputTel.classList.add('basket-form__input--is-error');
+      }
+    }
+
+    if (!valueMail) {
+      res = false;
+      inputMail.classList.add('basket-form__input--is-error')
+    } else {
+      res = regexСheck(valueMail, regMail) && res;
+      if (!res) {
+        inputMail.classList.add('basket-form__input--is-error');
+      }
+    }
+
+
+    if (!res) {
+      return
+    }
+
+    data = new FormData(basketForm);
+    data.append('_token', _token);
+
+    response = await getData(POST, data, api)
+
+    if (response.rez) {
+      inputTel.value = ''
+      inputTel.classList.remove('basket-form__input--is-error');
+      inputMail.value = ''
+      inputMail.classList.remove('basket-form__input--is-error');
+      inputName.value = ''
+      inputName.classList.remove('basket-form__input--is-error');
+      basketFormMsg.innerHTML = response.desc;
+      basketFormMsg.classList.add('basket-form__message--is-show');
+      basketList.innerHTML = '<p class="basket__empty">Ваша корзина пустая</p>';
+      totalBasketCount.innerHTML = 0;
+      totalBasketPrice.innerHTML = 0;
+    } else {
+      basketFormMsg.innerHTML = response.desc;
+      basketFormMsg.classList.add('basket-form__message--is-show');
+    }
+
+
+
+  }
+}
+
+
 
 // Добовлям фунцию для прокрутки сраницы вверх
 upBtn.addEventListener('click', goUp);
@@ -1159,7 +1247,7 @@ function getData(method, data, api) {
     xhr.onload = function () {
       if (xhr.status != 200) {
         console.log('Ошибка: ' + xhr.status);
-        return;
+        return false;
       } else {
         response = JSON.parse(xhr.response);
         resolve(response);
@@ -1270,4 +1358,45 @@ function removeOrderCard(e) {
     orderItem.innerHTML = '';
     orderCounter.value = 1;
   }
+}
+
+async function renderOrderCart(e) {
+  const btn = e.target.closest('[data-fast-order]');
+
+  if (!btn) {
+    return;
+  }
+  const orderForm = document.querySelector("#orderForm");
+  const orderItem = orderForm.querySelector("[data-order-item]");
+  const price = orderForm.querySelector("[data-price]");
+  const priceTotal = orderForm.querySelector("[data-price-total]");
+  const api = btn.dataset.link;
+  const id = btn.dataset.id;
+  let response = null;
+  let elStr = null;
+  const data = {
+    "_token": _token,
+    "id": id
+  }
+
+  response = await getData(POST, data, api);
+  elStr = getMarkEl(response.content[0]);
+  orderItem.insertAdjacentHTML('afterbegin', elStr);
+  console.log(response.content[0].sale_price);
+  price.dataset.price = response.content[0].sale_price
+  priceTotal.innerHTML = response.content[0].sale_price.toLocaleString();
+
+  function getMarkEl(obj) {
+    console.log(obj)
+    return /*html*/`
+  <div id="${obj.id}" class="order-modal__item" data-order-card>
+    <img src="${obj.pic_fallback[0]}" alt="" class="order-modal__img">
+    <div class="order-modal__desc">
+    ${obj.title}
+    </div>
+  </div>
+  `
+  }
+
+  console.log(elStr);
 }
