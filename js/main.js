@@ -66,7 +66,123 @@ document.addEventListener('click', addBasket);
 document.addEventListener('click', renderOrderCart);
 
 if (basket) {
-  basket.addEventListener('click', removeBasketCard)
+  basket.addEventListener('click', removeBasketCard);
+  basket.addEventListener('click', counterCard);
+  basket.addEventListener('input', sendValue);
+  //basket.addEventListener('input', (e) => {
+  //  debounce(sendValue, 500, e);
+  //});
+}
+
+
+
+
+async function sendValue(e) {
+
+  const input = e.target.closest('[data-input]');
+  if (!input) {
+    return;
+  }
+  const api = input.dataset.link;
+  const id = input.dataset.id;
+  const card = input.closest('[data-product-card]');
+  const msg = card.querySelector('[data-card-msg]');
+  const data = {
+    '_token': _token,
+    'id': id,
+  }
+  const totalBasketCount = document.querySelector('#totalBasketCount');
+  const totalBasketPrice = document.querySelector('#totalBasketPrice');
+  let response = null;
+
+
+  const value = input.value.trim();
+  if (isNaN(value)) {
+    msg.classList.add('basket-card__msg--is-show');
+    msg.innerHTML = 'Введите число';
+    return;
+  }
+
+  if (value <= 0) {
+    input.value = 1;
+    msg.classList.remove('basket-card__msg--is-show');
+  }
+
+  data.count = value;
+  response = await getData(POST, data, api);
+
+  if (!response.res) {
+    msg.classList.add('basket-card__msg--is-show');
+    msg.innerHTML = response.desc;
+    return;
+  }
+
+  msg.classList.add('basket-card__msg--is-show');
+  input.value = response.count;
+
+  totalBasketCount.innerHTML = response.card.count;
+  totalBasketPrice.innerHTML = response.card.total_price;
+}
+
+async function counterCard(e) {
+  const btn = e.target.closest('[data-count-btn]');
+  if (!btn) {
+    return;
+  }
+  const totalBasketCount = document.querySelector('#totalBasketCount');
+  const totalBasketPrice = document.querySelector('#totalBasketPrice');
+  const card = btn.closest('[data-product-card]');
+  const msg = card.querySelector('[data-card-msg]');
+  const counter = btn.closest('[data-counter]');
+  const id = counter.dataset.id;
+  const api = counter.dataset.link;
+  const input = counter.querySelector('[data-input]');
+  const value = input.value;
+  let res = 0;
+  let response = null;
+  const data = {
+    '_token': _token,
+    'id': id,
+  };
+
+  input.addEventListener('input', sendValue);
+  if (btn.hasAttribute('data-inc')) {
+
+    res = +value + 1;
+    data.count = res;
+    response = await getData(POST, data, api);
+
+    if (!response.res) {
+      console.log(msg)
+      msg.classList.add('basket-card__msg--is-show');
+      msg.innerHTML = response.desc;
+      return;
+    }
+    input.value = response.count;
+    msg.classList.remove('basket-card__msg--is-show');
+    totalBasketCount.innerHTML = response.card.count;
+    totalBasketPrice.innerHTML = response.card.total_price;
+  }
+  if (btn.hasAttribute('data-dec')) {
+    res = value - 1;
+    if (res <= 0) {
+      input.value = 1
+      return
+    }
+
+    data.count = res;
+    response = await getData(POST, data, api);
+    if (!response.res) {
+      console.log(msg)
+      msg.classList.add('basket-card__msg--is-show');
+      msg.innerHTML = response.desc;
+      return;
+    }
+    input.value = response.count;
+    msg.classList.remove('basket-card__msg--is-show');
+    totalBasketCount.innerHTML = response.card.count;
+    totalBasketPrice.innerHTML = response.card.total_price;
+  }
 }
 
 async function removeBasketCard(e) {
@@ -91,7 +207,6 @@ async function removeBasketCard(e) {
     totalBasketPrice.innerHTML = response.card.total_price.toLocaleString();
     basketList.removeChild(card);
   }
-  //console.log(basketList, totalBasketCount, totalBasketPrice);
 
 }
 

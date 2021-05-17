@@ -5643,6 +5643,17 @@ li {
   margin-bottom: 10px;
 }
 
+.basket-card__msg {
+  display: none;
+  color: #ff0000;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.basket-card__msg--is-show {
+  display: block;
+}
+
 .basket-card__footer {
   display: -webkit-box;
   display: -ms-flexbox;

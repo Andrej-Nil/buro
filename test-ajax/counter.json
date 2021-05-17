@@ -1,0 +1,11 @@
+{
+  "res" : 1,
+  "desc": "Текст ошибки",
+  "content": {},
+  "count": 2,
+  "card": {
+    "count": 31,
+    "sale_price" : 22340,
+    "total_price": 70000
+  }
+}
