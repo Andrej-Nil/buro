@@ -117,7 +117,7 @@ async function sendValue(e) {
     return;
   }
 
-  msg.classList.add('basket-card__msg--is-show');
+  msg.classList.remove('basket-card__msg--is-show');
   input.value = response.count;
 
   totalBasketCount.innerHTML = response.card.count;
