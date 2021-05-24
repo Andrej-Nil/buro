@@ -19,7 +19,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 110%;
-  color: #1d295d;
+  color: $base;
   margin-bottom: 20px;
   @media (min-width: 500px) {
     display: none;
@@ -60,15 +60,11 @@
 .block-info {
   margin-bottom: 50px;
   padding: 19px 22px 22px;
-  background: radial-gradient(
-    157.38% 59.19% at 50% 59.19%,
-    #264393 0%,
-    #1d295d 100%
-  );
+  background: $d-l-base;
   @media (min-width: 1000px) {
     margin-bottom: 100px;
     padding: 18px 22px 46px;
-    background: #264393;
+    background: $base;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
   }
 }

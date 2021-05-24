@@ -1758,7 +1758,7 @@ li {
 .m-c-slide {
   overflow: hidden;
   min-width: 100%;
-  min-height: 200px;
+  height: 200px;
   background: radial-gradient(308.6% 100% at 30.62% 0%, #222 0%, #444 100%);
 }
 
@@ -4318,7 +4318,7 @@ li {
   font-weight: 500;
   font-size: 18px;
   line-height: 110%;
-  color: #1d295d;
+  color: #141414;
   margin-bottom: 20px;
 }
 
@@ -4369,14 +4369,14 @@ li {
 .block-info {
   margin-bottom: 50px;
   padding: 19px 22px 22px;
-  background: radial-gradient(157.38% 59.19% at 50% 59.19%, #264393 0%, #1d295d 100%);
+  background: radial-gradient(308.6% 100% at 30.62% 0%, #222 0%, #444 100%);
 }
 
 @media (min-width: 1000px) {
   .block-info {
     margin-bottom: 100px;
     padding: 18px 22px 46px;
-    background: #264393;
+    background: #141414;
     -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
             box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
   }
