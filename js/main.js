@@ -1051,6 +1051,7 @@ function callbackFormSend() {
       if (response == 1) {
         bgModal.classList.add('shading--is-show');
         applicationThanks.classList.add('modal--is-show');
+        callbackFormModal.classList.remove('callback-form__wrap--is-show');
         clearInputs(inputs);
         console.log("Форма отправилась");
 
