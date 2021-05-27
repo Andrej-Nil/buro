@@ -1035,6 +1035,7 @@ function callbackInputsCheck() {
 }
 
 function callbackFormSend() {
+  const inputs = callbackForm.querySelectorAll('input');
   const formData = new FormData(callbackForm);
   const xhr = new XMLHttpRequest();
   formData.append("_token", _token);
@@ -1048,7 +1049,11 @@ function callbackFormSend() {
     } else {
       let response = JSON.parse(xhr.response);
       if (response == 1) {
+        bgModal.classList.add('shading--is-show');
+        applicationThanks.classList.add('modal--is-show');
+        clearInputs(inputs);
         console.log("Форма отправилась");
+
 
       } else {
         console.log("Неудачная отправка");
@@ -1350,15 +1355,22 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
-
+function createFormData(data) {
+  const formData = new FormData()
+  for (let key in data) {
+    formData.append(`${key}`, data[key])
+  }
+  return formData;
+}
 function getData(method, data, api) {
-
   return new Promise(function (resolve, reject) {
+    const formData = createFormData(data);
 
     const xhr = new XMLHttpRequest();
     let response = null
     xhr.open(method, api, true);
-    xhr.send(data);
+    xhr.send(formData);
+
     xhr.onload = function () {
       if (xhr.status != 200) {
         console.log('Ошибка: ' + xhr.status);
@@ -1515,3 +1527,5 @@ async function renderOrderCart(e) {
 
   console.log(elStr);
 }
+
+
