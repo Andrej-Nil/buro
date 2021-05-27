@@ -285,7 +285,6 @@ function sendBasketForm() {
 
     data = new FormData(basketForm);
     data.append('_token', _token);
-
     response = await getData(POST, data, api)
 
     if (response.rez) {
@@ -304,9 +303,6 @@ function sendBasketForm() {
       basketFormMsg.innerHTML = response.desc;
       basketFormMsg.classList.add('basket-form__message--is-show');
     }
-
-
-
   }
 }
 
@@ -1365,12 +1361,12 @@ function createFormData(data) {
 }
 function getData(method, data, api) {
   return new Promise(function (resolve, reject) {
-    const formData = createFormData(data);
+
 
     const xhr = new XMLHttpRequest();
     let response = null
     xhr.open(method, api, true);
-    xhr.send(formData);
+    xhr.send(data);
 
     xhr.onload = function () {
       if (xhr.status != 200) {
@@ -1506,8 +1502,8 @@ async function renderOrderCart(e) {
     "_token": _token,
     "id": id
   }
-
-  response = await getData(POST, data, api);
+  const formData = createFormData(data);
+  response = await getData(POST, formData, api);
   elStr = getMarkEl(response.content[0]);
   orderItem.insertAdjacentHTML('afterbegin', elStr);
   console.log(response.content[0].sale_price);
