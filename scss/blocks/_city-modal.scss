@@ -1,0 +1,36 @@
+.city-modal {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.search-сity {
+  margin-bottom: 20px;
+}
+
+.city-list {
+  height: 350px;
+  overflow-y: auto;
+}
+
+.city-list__item {
+  display: inline-block;
+  width: 95%;
+  margin: 0 1% 20px 0;
+  @media (min-width: 600px) {
+    width: 47%;
+  }
+  @media (min-width: 900px) {
+    width: 31%;
+  }
+}
+
+.city-list__item--is-hide {
+  display: none;
+}
+
+.city-list__link {
+  width: 100%;
+  font-weight: 500;
+  color: $base;
+  font-size: 18px;
+}

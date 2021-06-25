@@ -1,6 +1,6 @@
 "use strict";
 const _token = getToken();
-const POST = 'GET';
+const POST = 'POST';
 const GET = 'GET';
 const body = document.querySelector('body');
 const KEY_ESC = 27;
@@ -25,6 +25,8 @@ const application = document.querySelector('#application'); // Онлайн за
 const applicationForm = document.querySelector('#applicationForm'); // Онлайн заявка(btn)
 const applicationModal = document.querySelector('#applicationModal');// онлайн заявка(окно)
 const applicationThanks = document.querySelector('#applicationThanks');// успех(окно)
+const cityModal = document.querySelector('#cityModal');
+const cityModalBtn = document.querySelector('#cityModalBtn');
 const order = document.querySelector('#order') // заказ(окно)
 const orderForm = document.querySelector('#orderForm');
 const orderQuantityInput = document.querySelector('#orderQuantity');
@@ -150,7 +152,9 @@ async function counterCard(e) {
 
     res = +value + 1;
     data.count = res;
-    response = await getData(POST, data, api);
+
+    const formData = appendData(data)
+    response = await getData(POST, formData, api);
 
     if (!response.res) {
       console.log(msg)
@@ -171,7 +175,8 @@ async function counterCard(e) {
     }
 
     data.count = res;
-    response = await getData(POST, data, api);
+    const formData = appendData(data)
+    response = await getData(POST, formData, api);
     if (!response.res) {
       console.log(msg)
       msg.classList.add('basket-card__msg--is-show');
@@ -198,9 +203,11 @@ async function removeBasketCard(e) {
   const id = btn.dataset.id;
   const data = {
     '_token': _token,
-    'id ': id
+    'id': id
   }
-  const response = await getData(POST, data, api);
+
+  const formData = appendData(data);
+  const response = await getData(POST, formData, api);
 
   if (response.res) {
     totalBasketCount.innerHTML = response.card.count;
@@ -285,6 +292,7 @@ function sendBasketForm() {
 
     data = new FormData(basketForm);
     data.append('_token', _token);
+
     response = await getData(POST, data, api)
 
     if (response.rez) {
@@ -303,6 +311,9 @@ function sendBasketForm() {
       basketFormMsg.innerHTML = response.desc;
       basketFormMsg.classList.add('basket-form__message--is-show');
     }
+
+
+
   }
 }
 
@@ -318,7 +329,7 @@ function goUp() {
     timeOut = setTimeout('goUp()', 5);
   } else clearTimeout(timeOut);
 }
-// Обрезаем длину ссылок в популярных разделай 
+// Обрезаем длину ссылок в популярных разделай
 strLength('sections-card__link-item', 20);
 //strLength('sections-card__title', 34);
 
@@ -363,6 +374,8 @@ if (order) {
   incQuantity.addEventListener('click', increase);
   decQuantity.addEventListener('click', decrease);
 }
+
+
 
 mobileMenuOpenBtn.addEventListener('click', openMobileMenu);
 mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
@@ -787,9 +800,17 @@ application.addEventListener('click', () => {
   showModal(applicationModal)
 });
 
+if (cityModal) {
+  cityModalBtn.addEventListener('click', () => {
+    showModal(cityModal);
+
+  })
+  searchCity();
+}
+
 // добовляем фунцию отктрытия окна заказ
 Array.from(orderBtns).forEach((el) => {
-  el.addEventListener('click', () => { showModal(order) });
+  el.addEventListener('click', () => { showModal(order, el) });
 });
 
 // Добовляем функцию закрытия для модульных окон
@@ -860,7 +881,7 @@ function callbackModalClose() {
   callbackFormModal.classList.remove('callback-form__wrap--is-show');
 }
 //Функция открытия модульного окна
-function showModal(idModal) {
+function showModal(idModal, el) {
   bgModal.classList.add('shading--is-show');
   idModal.classList.add('modal--is-show');
   body.classList.add('is-no-scroll');
@@ -914,7 +935,7 @@ function slow(el) {
   dropdownHeader.classList.add('is-active')
 }
 
-//Адаптирует высоту dropdown 
+//Адаптирует высоту dropdown
 function adaptDropdownsHeight() {
 
   Array.from(dropdownWraps).forEach((el) => {
@@ -968,7 +989,7 @@ function applicationInputsCheck() {
 function applicationFormSend() {
   const formData = new FormData(applicationForm);
   const xhr = new XMLHttpRequest();
-  formData.append("_token", _token);
+  // formData.append("_token", _token);
   xhr.open(POST, applicationForm.action);
   xhr.send(formData);
 
@@ -1050,7 +1071,6 @@ function callbackFormSend() {
         callbackFormModal.classList.remove('callback-form__wrap--is-show');
         clearInputs(inputs);
         console.log("Форма отправилась");
-
 
       } else {
         console.log("Неудачная отправка");
@@ -1274,7 +1294,7 @@ function showSearch() {
 function changePosition() {
   const mainBgCoord = mainBg.getBoundingClientRect();
   const footerCoord = footer.getBoundingClientRect();
-  // Взависимости от условия 
+  // Взависимости от условия
   if (footerCoord.y <= mainBgCoord.height) {
     // позиция absolute для прижития bg  к футеру
     mainBg.classList.add('main-bg--absolute');
@@ -1352,19 +1372,14 @@ function getToken() {
   const meta = document.querySelector('meta[name="csrf-token"]');
   return meta.getAttribute('content')
 }
-function createFormData(data) {
-  const formData = new FormData()
-  for (let key in data) {
-    formData.append(`${key}`, data[key])
-  }
-  return formData;
-}
-function getData(method, data, api) {
-  return new Promise(function (resolve, reject) {
 
+function getData(method, data, api) {
+
+  return new Promise(function (resolve, reject) {
 
     const xhr = new XMLHttpRequest();
     let response = null
+
     xhr.open(method, api, true);
     xhr.send(data);
 
@@ -1388,6 +1403,13 @@ function getData(method, data, api) {
   })
 }
 
+function appendData(data) {
+  const formData = new FormData()
+  for (let key in data) {
+    formData.append(`${key}`, data[key])
+  }
+  return formData;
+}
 async function addBasket(e) {
 
   const btn = e.target.closest('[data-add-basket]');
@@ -1401,7 +1423,10 @@ async function addBasket(e) {
     '_token': _token,
     'id': id
   }
-  response = await getData(POST, data, api);
+
+  const formData = appendData(data);
+
+  response = await getData(POST, formData, api);
   console.log(response.toggle)
   setInBasketBtn(btn, response.toggle, response.desc)
 
@@ -1455,7 +1480,9 @@ async function addFavorite(e) {
     '_token': _token,
     'id': id
   }
-  response = await getData(POST, data, api);
+
+  const formData = appendData(data)
+  response = await getData(POST, formData, api);
   console.log(response);
   setFavoriteIcon(btn, response.toggle);
 
@@ -1502,13 +1529,13 @@ async function renderOrderCart(e) {
     "_token": _token,
     "id": id
   }
-  const formData = createFormData(data);
+  const formData = appendData(data)
   response = await getData(POST, formData, api);
   elStr = getMarkEl(response.content[0]);
   orderItem.insertAdjacentHTML('afterbegin', elStr);
-  console.log(response.content[0].sale_price);
-  price.dataset.price = response.content[0].sale_price
-  priceTotal.innerHTML = response.content[0].sale_price.toLocaleString();
+  console.log(response.content[0].price);
+  price.dataset.price = response.content[0].price
+  priceTotal.innerHTML = response.content[0].price.toLocaleString();
 
   function getMarkEl(obj) {
     console.log(obj)
@@ -1525,4 +1552,28 @@ async function renderOrderCart(e) {
   console.log(elStr);
 }
 
+function searchCity() {
+  const searchInput = cityModal.querySelector('#searchCity');
+  const cities = cityModal.querySelectorAll('[data-city]');
+  const li = cityModal.querySelectorAll('[data-item]');
+
+
+
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value;
+    cities.forEach(el => {
+      const cityName = el.innerHTML.toLowerCase();
+      const res = cityName.includes(value);
+      const li = el.closest('[data-item]');
+      li.classList.add('city-list__item--is-hide');
+      if (res === '') {
+        li.classList.remove('city-list__item--is-hide');
+      }
+      if (res) {
+        li.classList.remove('city-list__item--is-hide');
+      }
+
+    })
+  })
+}
 
